@@ -1,0 +1,27 @@
+﻿<div class="fs-gradient fs-gradient--@Enum.GetName(Colour).ToCssClass() fs-gradient--@Enum.GetName(Direction).ToCssClass()">
+    @ChildContent
+</div>
+
+@code {
+    public enum GradientColour
+    {
+        Default,
+        Green,
+        Grey
+    }
+
+    public enum GradientDirection
+    {
+        Default,
+        LeftToRight,
+        RightToLeft,
+        TopToBottom,
+        BottomToTop
+    }
+
+    [Parameter] public GradientColour Colour { get; set; }
+
+    [Parameter] public GradientDirection Direction { get; set; }
+
+    [Parameter] public RenderFragment ChildContent { get; set; }
+}

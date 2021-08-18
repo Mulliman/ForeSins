@@ -1,0 +1,14 @@
+﻿.fs-gradient {
+    background: rgb(77,178,88);
+    background: linear-gradient(180deg, rgba(77,178,88,1) 0%, rgba(42,117,54,1) 100%);
+}
+
+    .fs-gradient.fs-gradient--grey {
+        background: #DDD;
+        background: linear-gradient(180deg, #CCC 0%, #EEE 100%);
+    }
+
+    .fs-gradient.fs-gradient--bottom-to-top {
+        background: rgb(77,178,88);
+        background: linear-gradient(0deg, rgba(77,178,88,1) 0%, rgba(42,117,54,1) 100%);
+    }

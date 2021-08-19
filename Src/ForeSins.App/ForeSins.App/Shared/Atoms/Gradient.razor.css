@@ -8,6 +8,11 @@
         background: linear-gradient(180deg, #CCC 0%, #EEE 100%);
     }
 
+    .fs-gradient.fs-gradient--grass {
+        background: rgb(77,178,88);
+        background: linear-gradient(110deg, rgba(77,178,88,1) 0%, rgba(76,176,87,1) 19%, rgba(73,170,88,1) 20%, rgba(73,170,88,1) 39%, rgba(77,178,88,1) 40%, rgba(77,178,88,1) 59%, rgba(73,170,88,1) 60%, rgba(73,170,88,1) 79%, rgba(77,178,88,1) 80%, rgba(73,170,88,1) 100%);
+    }
+
     .fs-gradient.fs-gradient--bottom-to-top {
         background: rgb(77,178,88);
         background: linear-gradient(0deg, rgba(77,178,88,1) 0%, rgba(42,117,54,1) 100%);

@@ -1,0 +1,13 @@
+﻿<div class="fs-cta">
+    <MudButton DisableElevation="true" Size="Size.Large" Color="@Colour" Variant="Variant.Filled" @onclick="OnClick">
+        @Text
+    </MudButton>
+</div>
+
+@code {
+    [Parameter] public string Text { get; set; }
+
+    [Parameter] public Color Colour { get; set; } = Color.Primary;
+
+    [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+}

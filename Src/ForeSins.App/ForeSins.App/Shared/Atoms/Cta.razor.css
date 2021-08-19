@@ -1,0 +1,15 @@
+.fs-cta {
+    margin: auto;
+    display: flex;
+    justify-items:center;
+}
+
+::deep .mud-button {
+    border-radius: 20px;
+    box-shadow: rgba(0,0,0,0.3) 0 0 4px;
+    border: 2px solid white;
+    margin: auto;
+    display: flex;
+    font-family: 'Roboto Slab', serif;
+    font-weight:800;
+}

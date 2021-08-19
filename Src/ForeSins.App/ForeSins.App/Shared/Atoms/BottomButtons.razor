@@ -1,0 +1,28 @@
+﻿@if (Left != null)
+{
+    <span class="fs-bottom-buttons__left" style="position:fixed; bottom: 16px; left:16px; z-index:2000">
+        @Left
+    </span>
+}
+
+@if (Middle != null)
+{
+    <span class="fs-bottom-buttons__middle" style="position:fixed; bottom: 16px; right:16px; z-index:2000">
+        @Middle
+    </span>
+}
+
+@if (Right != null)
+{
+    <span class="fs-bottom-buttons__right" style="position:fixed; bottom: 16px; right:16px; z-index:2000">
+        @Right
+    </span>
+}
+
+@code {
+    [Parameter] public RenderFragment Left { get; set; }
+
+    [Parameter] public RenderFragment Middle { get; set; }
+
+    [Parameter] public RenderFragment Right { get; set; }
+}

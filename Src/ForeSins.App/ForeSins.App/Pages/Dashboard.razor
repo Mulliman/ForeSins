@@ -1,31 +1,7 @@
 ﻿@page "/dashboard"
 @layout MainLayout
 
-@inject Grader Grader
-
-<MudTimeline TimelineOrientation="TimelineOrientation.Vertical">
-
-    
-    @foreach (var round in rounds)
-    {
-        var grade = Grader.Grade(round);
-        var timelineAlign = reverse ? TimelineAlign.End : TimelineAlign.End;
-        reverse = !reverse;
-
-        <MudTimelineItem Color="Color.Transparent" Size="Size.Small" Elevation="0" Variant="Variant.Filled" TimelineAlign="timelineAlign">
-            <ItemOpposite>
-                <MudText Align="Align.Center"><strong>@(round.Date.ToString("dd"))</strong><br />@(round.Date.ToString("MMM yy"))</MudText>
-            </ItemOpposite>
-            <ItemContent>
-                <MudText Align="Align.Center"><Horny Text="@round.Sins.ToString()"></Horny><br /><strong><GolfScore Score="@round.ResultToPar" /></strong> (<GolfScore Score="@round.ResultToHandicap" />)</MudText>
-            </ItemContent>
-            <ItemDot>
-                <GradeDot Grade="grade" />
-            </ItemDot>
-        </MudTimelineItem>
-    }
-</MudTimeline>
-
+<RoundTimeline Rounds="rounds"></RoundTimeline>
 
 <BottomButtons>
     <Right>
@@ -35,5 +11,4 @@
 
 @code {
     List<Round> rounds = Fakes.Rounds;
-    bool reverse = false;
 }

@@ -1,0 +1,9 @@
+﻿<span class="@Score.GetScoreClass() @Classes" style="@Style">@Score.FormatScore()</span>
+
+@code {
+    [Parameter] public int Style { get; set; }
+
+    [Parameter] public int Classes { get; set; }
+
+    [Parameter] public int Score { get; set; }
+}

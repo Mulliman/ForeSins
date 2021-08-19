@@ -8,6 +8,7 @@ namespace ForeSins.App
 {
     public class ForeSinsTheme
     {
+        public const string White = "#FFF";
         public const string MainRed = "#BF406D";
         public const string MainGreen = "#4DB258";
         public const string MainBlue = "#40A9BF";

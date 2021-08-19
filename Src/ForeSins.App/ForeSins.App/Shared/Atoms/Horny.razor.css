@@ -1,0 +1,29 @@
+﻿.fs-horny {
+    color: #BF406D;
+    font-weight: bold;
+    position: relative;
+}
+
+    .fs-horny::before {
+        position:relative;
+        display: inline-block;
+        content: ' ';
+        background-image: url('/images/details/horn-left.svg');
+        background-size: 5px 10px;
+        height: 10px;
+        width: 5px;
+        margin-top:-10px;
+        top:-10px;
+    }
+
+    .fs-horny::after {
+        position: relative;
+        display: inline-block;
+        content: ' ';
+        background-image: url('/images/details/horn-right.svg');
+        background-size: 5px 10px;
+        height: 10px;
+        width: 5px;
+        margin-top: -10px;
+        top: -10px;
+    }

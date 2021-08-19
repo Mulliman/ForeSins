@@ -20,6 +20,7 @@ namespace ForeSins.App
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddMudServices();
+            builder.Services.AddTransient<Grader>();
 
             builder.Services.AddOidcAuthentication(options =>
             {

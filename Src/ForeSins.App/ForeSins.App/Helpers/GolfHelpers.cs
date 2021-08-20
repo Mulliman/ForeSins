@@ -9,12 +9,12 @@ namespace ForeSins.App.Helpers
     {
         public static string FormatScore(this int score)
         {
-            if(score == 0)
+            if (score == 0)
             {
                 return "E";
             }
 
-            if(score > 0)
+            if (score > 0)
             {
                 return $"+{score}";
             }
@@ -35,6 +35,25 @@ namespace ForeSins.App.Helpers
             }
 
             return "score-under-par";
+        }
+
+        public static string GetGradeClass(this Grades grade)
+        {
+            return Enum.GetName(grade).ToLower();
+        }
+
+        public static string GetGradeColour(this Grades grade)
+        {
+            return grade switch
+            {
+                Grades.G => "gold",
+                Grades.A => "gold",
+                Grades.B => "green",
+                Grades.C => "blue",
+                Grades.D => "black",
+                Grades.S => "red",
+                _ => string.Empty
+            };
         }
     }
 }

@@ -9,10 +9,10 @@ namespace ForeSins.App
     {
         public Grades Grade(Round round)
         {
-            return Grade(round.Sins);
+            return Grade(Convert.ToInt32(round.Sins));
         }
 
-        public Grades Grade(uint sins)
+        public Grades Grade(double sins)
         {
             if(sins > 20)
             {

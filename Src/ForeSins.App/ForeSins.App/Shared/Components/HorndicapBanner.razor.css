@@ -1,0 +1,75 @@
+﻿.fs-horndicap-banner {
+    display: flex;
+    align-items: center;
+    margin: 40px 10% 10px;
+    padding: 10px 10px 10px 15px;
+    box-shadow: rgba(0,0,0,0.1) 0 0 10px;
+    border-radius: 5px;
+    background: #FFF;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.fs-horndicap-banner__details {
+    flex: 2;
+    text-align: center;
+}
+
+.fs-horndicap-banner__title {
+    margin-top: 10px;
+}
+
+.fs-horndicap-banner__grade {
+    flex: 1;
+    padding-left: 10px;
+}
+
+.fs-666-banner {
+    display: flex;
+    align-items: center;
+    margin: 0 10% 20px;
+}
+
+.fs-666-banner__item {
+    flex: 1;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    background: #FFF;
+    border-radius: 5px;
+    border: 2px solid #CCC;
+    box-shadow: rgba(0,0,0,0.1) 0 0 10px;
+    line-height: 1.1rem;
+}
+
+    .fs-666-banner__item img {
+        margin-top: 10px;
+        display: block;
+        margin: auto;
+    }
+
+.fs-666-banner__time {
+    margin-top: 10px;
+}
+
+.fs-666-banner__sindex {
+    margin: 10px 0 5px;
+    font-weight:bold;
+}
+
+.fs-666-banner__item strong {
+    font-weight: 800;
+}
+
+.fs-666-banner__item.fs-666-banner__item--first {
+    margin-left: 0;
+}
+
+.fs-666-banner__item.fs-666-banner__item--last {
+    margin-right: 0;
+}
+
+
+.fs-grade-image {
+    padding: 5px 0;
+}

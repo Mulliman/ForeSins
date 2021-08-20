@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1366 2541" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g>
+        <g transform="matrix(16.0987,0,0,16.2779,147738,47057)">
+            <text x="-9160.59px" y="-2794.78px" style="font-family:'Oswald-Bold', 'Oswald';font-weight:700;font-size:90px;fill:rgb(64,169,191);">C</text>
+        </g>
+        <g transform="matrix(0.281795,0,0,0.281795,4183.09,2985.37)">
+            <g transform="matrix(0.99,0,0,1,-147.304,0)">
+                <text x="-14730.4px" y="-3058.36px" style="font-family:'Rockwell-Condensed', 'Rockwell Condensed', serif;font-stretch:condensed;font-size:1465.01px;fill:rgb(64,169,191);">C<tspan x="-14062.7px -13378.5px -12434.7px -11490.9px -10806.7px " y="-3058.36px -3058.36px -3058.36px -3058.36px -3058.36px ">OMMON</tspan></text>
+            </g>
+            <g transform="matrix(0.99,0,0,1,-141.24,0)">
+                <text x="-14124px" y="-1593.35px" style="font-family:'Rockwell-Condensed', 'Rockwell Condensed', serif;font-stretch:condensed;font-size:1465.01px;fill:rgb(64,169,191);">C<tspan x="-13456.3px -12748.6px -12064.4px -11380.3px " y="-1593.35px -1593.35px -1593.35px -1593.35px ">ROOK</tspan></text>
+            </g>
+        </g>
+    </g>
+</svg>

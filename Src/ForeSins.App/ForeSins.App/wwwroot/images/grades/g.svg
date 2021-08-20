@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1366 2541" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(7.27213,0,0,7.27213,-278.584,54.6323)">
+        <g transform="matrix(1.91137,0,0,1.93264,17584.3,5611.15)">
+            <text x="-9160.59px" y="-2794.78px" style="font-family:'Oswald-Bold', 'Oswald';font-weight:700;font-size:103.407px;fill:url(#_Linear1);stroke:rgb(205,153,30);stroke-width:1.79px;">G</text>
+        </g>
+        <g transform="matrix(0.0970458,0,0,0.0420377,1000.05,87.072)">
+            <ellipse cx="-8942.62" cy="-1486.97" rx="653.906" ry="171.733" style="fill:none;stroke:rgb(217,164,38);stroke-width:58.53px;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:1.5;"/>
+        </g>
+        <g transform="matrix(0.03875,0,0,0.03875,613.818,403.05)">
+            <text x="-14651px" y="-3058.36px" style="font-family:'Rockwell-Condensed', 'Rockwell Condensed', serif;font-stretch:condensed;font-size:1465.01px;fill:rgb(205,153,30);">G<tspan x="-13983.3px -13299.1px -12676.5px -12053.9px -11600.1px -10825.1px " y="-3058.36px -3058.36px -3058.36px -3058.36px -3058.36px -3058.36px ">OLFING</tspan></text>
+            <text x="-13437.6px" y="-1593.35px" style="font-family:'Rockwell-Condensed', 'Rockwell Condensed', serif;font-stretch:condensed;font-size:1465.01px;fill:rgb(205,153,30);">G<tspan x="-12769.9px -12085.7px " y="-1593.35px -1593.35px ">OD</tspan></text>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-2.29289,77.3269,-78.1876,-2.26765,-9123.66,-2873.45)"><stop offset="0" style="stop-color:rgb(205,153,30);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(175,132,31);stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>

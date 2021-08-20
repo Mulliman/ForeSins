@@ -1,0 +1,109 @@
+﻿@inject Services.HorndicapService service 
+
+<div class="fs-horndicap-banner fs-border-@(Horndicap.Grade.GetGradeClass())">
+    <div class="fs-horndicap-banner__details">
+        <img src="images/details/horndicap-@(Horndicap.Grade.GetGradeColour()).svg" class="fs-max-100 fs-horndicap-banner__title" alt="Horndicap" title="Horndicap" /><br />
+        <span>Your <span class="fs-slab"><strong class="fs-main-red">SIN</strong>DEX</span> is <strong>@Horndicap.Sindex.ToString("#.#")</strong></span><br />
+    </div>
+    <div class="fs-horndicap-banner__grade">
+        <img src="images/grades/@(Horndicap.Grade.GetGradeClass()).svg" class="fs-max-100 fs-grade-image" />
+    </div>
+</div>
+
+<!--<div class="fs-horndicap-banner fs-border-g">
+    <div class="fs-horndicap-banner__details">
+        <img src="images/details/horndicap-gold.svg" class="fs-max-100 fs-horndicap-banner__title" alt="Horndicap" title="Horndicap"  /><br />
+        <span>Your <span class="fs-slab"><strong class="fs-main-red">SIN</strong>DEX</span> is <strong>2.8</strong></span><br />-->
+        @*<span style="margin-top:5px;">You are a<br /><strong class="fs-slab fs-main-gold" style="font-weight:800; font-size:1.1rem; line-height:1.2rem;">GOLFING GOD</strong></span>*@
+    <!--</div>
+    <div class="fs-horndicap-banner__grade">
+        <img src="images/grades/g.svg" class="fs-max-100 fs-grade-image" />
+    </div>
+</div>
+
+<div class="fs-horndicap-banner fs-border-s">
+    <div class="fs-horndicap-banner__details">
+        <img src="images/details/horndicap-gold.svg" class="fs-max-100 fs-horndicap-banner__title" alt="Horndicap" title="Horndicap" /><br />
+        <span>Your <span class="fs-slab"><strong class="fs-main-red">SIN</strong>DEX</span> is <strong>2.8</strong></span><br />-->
+        @*<span style="margin-top:5px;">You are a<br /><strong class="fs-slab fs-main-gold" style="font-weight:800; font-size:1.1rem; line-height:1.2rem;">GOLFING GOD</strong></span>*@
+    <!--</div>
+    <div class="fs-horndicap-banner__grade">
+        <img src="images/grades/s.svg" class="fs-max-100 fs-grade-image" />
+    </div>
+</div>
+
+<div class="fs-horndicap-banner fs-border-b">
+    <div class="fs-horndicap-banner__details">
+        <img src="images/details/horndicap-gold.svg" class="fs-max-100 fs-horndicap-banner__title" alt="Horndicap" title="Horndicap" /><br />
+        <span>Your <span class="fs-slab"><strong class="fs-main-red">SIN</strong>DEX</span> is <strong>2.8</strong></span><br />-->
+        @*<span style="margin-top:5px;">You are a<br /><strong class="fs-slab fs-main-gold" style="font-weight:800; font-size:1.1rem; line-height:1.2rem;">GOLFING GOD</strong></span>*@
+    <!--</div>
+    <div class="fs-horndicap-banner__grade">
+        <img src="images/grades/b.svg" class="fs-max-100 fs-grade-image" />
+    </div>
+</div>-->
+
+<div class="fs-666-banner">
+    @foreach (var six in SixSixSix)
+    {
+        <div class="fs-666-banner__item fs-666-banner__item--first">
+            <p class="fs-666-banner__time"><strong class="fs-slab fs-large-text fs-main-red">6</strong><br />@six.Key</p>
+            <img src="images/grades/@(six.Value.Grade.GetGradeClass()).svg" class="fs-max-80 fs-grade-image" />
+            <p class="fs-666-banner__sindex">@six.Value.Sindex.ToString("#.#")</p>
+        </div>
+    }
+</div>
+
+@*<div class="fs-666-banner">
+    <div class="fs-666-banner__item fs-666-banner__item--first">
+        <p>Last<br /><strong class="fs-slab fs-large-text fs-main-red">6</strong><br />Rounds</p>
+        <img src="images/grades/c.svg" class="fs-max-80 fs-grade-image" />
+    </div>
+
+    <div class="fs-666-banner__item">
+        <p>Last<br /><strong class="fs-slab fs-large-text fs-main-red">6</strong><br />Months</p>
+        <img src="images/grades/s.svg" class="fs-max-80 fs-grade-image" />
+    </div>
+
+    <div class="fs-666-banner__item fs-666-banner__item--last">
+        <p>Last<br /><strong class="fs-slab fs-large-text fs-main-red">6</strong><br />Years</p>
+        <img src="images/grades/d.svg" class="fs-max-80 fs-grade-image" />
+    </div>
+</div>
+
+<div class="fs-666-banner">
+    <div class="fs-666-banner__item fs-666-banner__item--first">
+        <p>Last<br /><strong class="fs-slab fs-large-text fs-main-red">6</strong><br />Rounds</p>
+        <img src="images/grades/a.svg" class="fs-max-80 fs-grade-image" />
+    </div>
+
+    <div class="fs-666-banner__item">
+        <p>Last<br /><strong class="fs-slab fs-large-text fs-main-red">6</strong><br />Months</p>
+        <img src="images/grades/b.svg" class="fs-max-80 fs-grade-image" />
+    </div>
+
+    <div class="fs-666-banner__item fs-666-banner__item--last">
+        <p>Last<br /><strong class="fs-slab fs-large-text fs-main-red">6</strong><br />Years</p>
+        <img src="images/grades/g.svg" class="fs-max-80 fs-grade-image" />
+    </div>
+</div>*@
+
+@code {
+    public Horndicap Horndicap { get; set; }
+    public Dictionary<string, Horndicap> SixSixSix { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        List<Round> rounds = Fakes.Rounds;
+        Horndicap = service.CalculateHorndicap(rounds);
+
+        var sixes = service.CalculateSixSixSix(rounds);
+
+        SixSixSix = new Dictionary<string, Horndicap>
+        {
+            { "Rounds", sixes.Last6Rounds },
+            { "Months", sixes.Last6Months },
+            { "Years", sixes.Last6Years }
+        };
+    }
+}

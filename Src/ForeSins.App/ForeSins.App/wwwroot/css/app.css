@@ -1,5 +1,12 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+:root {
+    --main-gold: #CD991E;
+    --main-red: #BF406D;
+    --main-blue: #40A9BF;
+    --main-green: #4DB258;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -16,6 +23,25 @@ body, #app {
     min-height: 100vh;
 }
 
+.fs-max-100{
+    max-width:100%;
+}
+
+.fs-max-90 {
+    max-width: 90%;
+}
+
+.fs-max-80 {
+    max-width: 80%;
+}
+
+.fs-max-66 {
+    max-width: 66%;
+}
+
+.fs-max-50 {
+    max-width: 50%;
+}
 
 
 
@@ -23,8 +49,66 @@ body, #app {
 /* Spacing */
 
 
+/* Colours */
+.fs-main-red {
+    color: #BF406D;
+}
 
+.fs-main-gold {
+    color: #CD991E;
+}
 
+/* Borders */
+
+.fs-border-gold, .fs-border-g, .fs-border-a{
+    border-color: var(--main-gold);
+}
+
+.fs-border-red, .fs-border-s {
+    border-color: var(--main-red);
+}
+
+.fs-border-blue, .fs-border-c {
+    border-color: var(--main-blue);
+}
+
+.fs-border-green, .fs-border-b {
+    border-color: var(--main-green);
+}
+
+.fs-border-black, .fs-border-d {
+    border-color: #000;
+}
+
+.fs-border-white {
+    border-color: #FFF;
+}
+
+/* Fonts */
+
+.fs-slab {
+    font-family: 'Roboto Slab', serif;
+}
+
+.fs-tiny-text {
+    font-size: 8px;
+}
+
+.fs-small-text {
+    font-size: 10px;
+}
+
+.fs-regular-text {
+    font-size: 14px;
+}
+
+.fs-large-text{
+    font-size: 24px;
+}
+
+.fs-massive-text {
+    font-size: 32px;
+}
 
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;

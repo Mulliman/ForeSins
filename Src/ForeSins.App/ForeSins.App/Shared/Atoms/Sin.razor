@@ -1,0 +1,7 @@
+﻿<img src="/images/sins/@(TheSin.GetSinClass()).png" class="fs-max-66" alt="@TheSin.GetSinWord()" title="@TheSin.GetSinWord()" @onclick="@(() => OnClick.InvokeAsync())" />
+
+@code {
+    [Parameter] public Sins TheSin { get; set; }
+
+    [Parameter] public EventCallback<string> OnClick { get; set; }
+}

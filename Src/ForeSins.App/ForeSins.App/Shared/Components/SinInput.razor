@@ -1,0 +1,26 @@
+﻿<div class="fs-sin-input">
+    <Sin TheSin="Sin" OnClick="Increment" />
+
+    <div class="fs-sin-input__fieldset">
+        <MudIconButton Icon="@Icons.Material.Filled.Remove" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" @onclick="Decrement" />
+        <input class="fs-sin-input__field" @bind-value="Value" type="number" />
+        <MudIconButton Icon="@Icons.Material.Filled.Add" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" @onclick="Increment" />
+    </div>
+        
+</div>
+
+@code {
+    [Parameter] public Sins Sin { get; set; }
+
+    [Parameter] public uint Value { get; set; } = 0;
+
+    public void Decrement()
+    {
+        Value = Value <= 1 ? 0 : Value - 1;
+    }
+
+    public void Increment()
+    {
+        Value = Value + 1;
+    }
+}

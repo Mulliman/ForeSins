@@ -1,0 +1,21 @@
+﻿.fs-sin-input {
+    text-align:center;
+}
+
+.fs-sin-input__fieldset {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.fs-sin-input__fieldset button {
+    margin:0;
+}
+
+.fs-sin-input__field {
+     height:30px;
+     width:50px;
+     text-align:center;
+     padding:2px;
+     border:none;
+}

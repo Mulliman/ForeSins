@@ -1,0 +1,11 @@
+﻿.fs-sins-grid {
+    display: flex;
+    align-items: center;
+    margin:30px auto;
+}
+
+    .fs-sins-grid div {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }

@@ -55,5 +55,33 @@ namespace ForeSins.App.Helpers
                 _ => string.Empty
             };
         }
+
+        public static string GetSinClass(this Sins sin)
+        {
+            return sin switch
+            {
+                Sins.ScrappyDoubles => "double",
+                Sins.SplashTroubles => "trouble",
+                Sins.ShockingChips => "chips",
+                Sins.SickeningYips => "yips",
+                Sins.SquanderedPositions => "position",
+                Sins.StupidDecisions => "decision",
+                _ => string.Empty
+            };
+        }
+
+        public static string GetSinWord(this Sins sin)
+        {
+            return sin switch
+            {
+                Sins.ScrappyDoubles => "Scrappy Doubles",
+                Sins.SplashTroubles => "Splash Troubles",
+                Sins.ShockingChips => "Shocking Chips",
+                Sins.SickeningYips => "Sickening Yips",
+                Sins.SquanderedPositions => "Squandered Positions",
+                Sins.StupidDecisions => "Stupid Decisions",
+                _ => string.Empty
+            };
+        }
     }
 }

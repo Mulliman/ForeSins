@@ -1,20 +1,22 @@
-﻿@page "/edit-round"
+﻿@using ForeSins.App.Shared.Surfaces
+
+@page "/edit-round"
 @layout MainLayout
-
-
 
 <Green>
     <div class="fs-heading-spacer"></div>
 
     <div style="display:block; overflow: auto">
+        <h2 class="fs-heading mt-5" style="color:#010;">New round</h2>
+
         <div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
             @*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
 
             <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Round Date</h3>
 
-            <MudDatePicker InputVariant="Variant.Outlined" PickerVariant="PickerVariant.Dialog" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" Style="margin:0" />
+            <MudDatePicker @bind-Date="Date" InputVariant="Variant.Outlined" PickerVariant="PickerVariant.Dialog" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" Style="margin:0" />
 
-            <Cta Text="Confess your sins" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" ScrollToId="step-sins" Class="mt-9" />
+            <Cta Text="Confess your sins" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" ScrollToId="step-sins" Class="mt-8" />
         </div>
     </div>
 
@@ -23,16 +25,20 @@
 
 <Hell HasCurvedBottom="true" HasCurvedTop="true" HasGrass="true">
     <div id="step-sins" class="fs-scroll-target">
+        <h2 class="fs-heading mt-5" style="color:@ForeSinsTheme.White">How did you sin?</h2>
+
         <SinsInputs></SinsInputs>
     </div>
 
-    <Cta Text="Fill in round details" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" />
+    <Cta Text="Fill in round details" Class="mt-3" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" IsWhite="true" ScrollToId="step-scores" />
 </Hell>
 
-
-
 <Bunker>
-    <div style="display:block; overflow: auto">
+    <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+
+    <div id="step-scores" class="fs-scroll-target" style="display:block; overflow: auto">
+        <h2 class="fs-heading mt-5" style="color:#220;">What did you score?</h2>
+
         <div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
             @*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
 
@@ -50,14 +56,42 @@
             <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Handicap</h3>
             <ScoreInput Value="ResultToHandicap" ValueChanged="OnNettChanged"></ScoreInput>
 
-            <Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-9" />
+            <Cta Text="View result" Class="mt-8" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" ScrollToId="step-scores" />
         </div>
     </div>
 </Bunker>
 
+<Green>
+    <div style="display:block; overflow: auto">
+        <h2 class="fs-heading mt-5" style="color:#010;">Result</h2>
 
+        <div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
+            <h3 class="fs-heading mt-5 mb-5" style="color:@ForeSinsTheme.MainRed">@Date.ToDateString()</h3>
+
+            <div class="fs-text-center"><GradeImage Grade="Grade" Class="fs-max-33" /></div>
+            
+            <div class="d-flex justify-space-around mt-6">
+                <div class="fs-min-25 fs-text-center">
+                    <Horny Text="TO"></Horny>
+                </div>
+                <div class="fs-min-25 fs-text-center">
+                    <strong><GolfScore IsBorderedAndColoured="true" Score="@ResultToPar" /></strong>
+                </div>
+                <div class="fs-min-25 fs-text-center">
+                    <strong><GolfScore IsBorderedAndColoured="true" Score="@ResultToHandicap" /></strong> 
+                </div>
+            </div>
+
+            <Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-8" />
+        </div>
+    </div>
+
+    
+</Green>
 
 @code {
+    [Parameter] public DateTime? Date { get; set; } = DateTime.Today;
+
     [Parameter] public double HandicapIndex { get; set; } = 2.1;
 
     [Parameter] public double CourseHandicap { get; set; } = 3;
@@ -67,6 +101,8 @@
     [Parameter] public int ResultToHandicap { get; set; }
 
     [Parameter] public ScoreType ScoreType { get; set; } = ScoreType.Simple;
+
+    public Grades Grade { get; set; } = Grades.S;
 
     public void OnGrossChanged(int value)
     {

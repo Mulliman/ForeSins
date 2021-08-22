@@ -1,4 +1,4 @@
-﻿<span class="@Score.GetScoreClass() @Classes" style="@Style">@Score.FormatScore()</span>
+﻿<span class="@Score.GetScoreClass() @Classes @BorderedAndColouredClass" style="@Style">@Score.FormatScore()</span>
 
 @code {
     [Parameter] public int Style { get; set; }
@@ -6,4 +6,8 @@
     [Parameter] public int Classes { get; set; }
 
     [Parameter] public int Score { get; set; }
+
+    [Parameter] public bool IsBorderedAndColoured { get; set; }
+
+    public string BorderedAndColouredClass => IsBorderedAndColoured ? Score < 0 ? "fs-border-1 pa-2 fs-under-par" : (Score > 0 ? "fs-border-1 pa-2 fs-over-par" : "fs-border-1 pa-2 fs-level-par") : ""; 
 }

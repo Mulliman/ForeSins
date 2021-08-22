@@ -1,7 +1,7 @@
 ﻿@inject IJSRuntime JS
 
 <div class="fs-cta">
-    <MudButton DisableElevation="true" Size="Size.Large" Color="@Colour" Variant="IsImportant ? Variant.Filled : Variant.Outlined" @onclick="HandleClick" EndIcon="@EndIcon" Class="@Class">
+    <MudButton DisableElevation="true" Size="Size.Large" Color="@Colour" Variant="IsImportant ? Variant.Filled : Variant.Outlined" @onclick="HandleClick" EndIcon="@EndIcon" Class="@Class" Style="@(IsWhite ? "background-color:white" : "")">
         @Text
     </MudButton>
 </div>
@@ -20,6 +20,8 @@
     [Parameter] public string ScrollToId { get; set; }
 
     [Parameter] public string Class { get; set; }
+
+    [Parameter] public bool IsWhite { get; set; }
 
     public void HandleClick(MouseEventArgs args)
     {

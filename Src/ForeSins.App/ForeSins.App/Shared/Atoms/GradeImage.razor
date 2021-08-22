@@ -1,0 +1,7 @@
+﻿<img src="images/grades/@(Grade.GetGradeClass()).png" class="fs-grade-image @Class" />
+
+@code {
+	[Parameter] public Grades Grade { get; set; }
+
+	[Parameter] public string Class { get; set; }
+}

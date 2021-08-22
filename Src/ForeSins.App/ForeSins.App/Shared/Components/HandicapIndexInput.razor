@@ -18,11 +18,11 @@
 
     public void Decrement()
     {
-        Value = Value >= MinHandicap + 1 ? Value - 1 : Value;
+        Value = Value >= MinHandicap + 0.1 ? Value - 0.1 : Value;
     }
 
     public void Increment()
     {
-        Value = Value <= MaxHandicap - 1 ? Value + 1 : Value;
+        Value = Value <= MaxHandicap - 0.1 ? Value + 0.1 : Value;
     }
 }

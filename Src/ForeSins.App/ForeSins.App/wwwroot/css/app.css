@@ -47,7 +47,13 @@ body, #app {
     max-width: 50%;
 }
 
+.fs-max-33 {
+    max-width: 33%;
+}
 
+.fs-min-25{
+    min-width:25%;
+}
 
 /* Spacing */
 
@@ -96,7 +102,35 @@ body, #app {
     border-color: #FFF;
 }
 
-/* Fonts */
+.fs-border-1{
+    border-width:1px;
+    border-style:solid;
+}
+
+.fs-border-2 {
+    border-width: 2px;
+    border-style: solid;
+}
+
+.fs-border-3 {
+    border-width: 3px;
+    border-style: solid;
+}
+
+.fs-border-5 {
+    border-width: 5px;
+    border-style: solid;
+}
+
+.fs-border-10 {
+    border-width: 10px;
+    border-style: solid;
+}
+
+/* Fonts and Text */
+.fs-text-center {
+    text-align: center;
+}
 
 .fs-slab {
     font-family: 'Roboto Slab', serif;
@@ -133,7 +167,11 @@ h3.fs-heading {
     font-weight:800;
 }
 
-
+h2.fs-heading {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
 
 /* Golf */
 
@@ -175,9 +213,9 @@ h3.fs-heading {
     height: 50px;
     width: 50px;
     text-align: center;
-    padding: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    padding: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
     border: 3px solid #424242;
     font-weight: bold;
 }

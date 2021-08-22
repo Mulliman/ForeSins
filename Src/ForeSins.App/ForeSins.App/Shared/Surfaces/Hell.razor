@@ -1,9 +1,9 @@
 ﻿@if (HasGrass)
 {
-    <GrassSpacer></GrassSpacer>
+    <Grass></Grass>
 }
 
-<div class="fs-bunker @(HasGrass ? "fs-bunker--grass" : "") @(HasCurvedTop ? "fs-bunker--curved-top" : "") @(HasCurvedBottom ? "fs-bunker--curved-bottom" : "")">
+<div class="fs-hell @(HasGrass ? "fs-hell--grass" : "") @(HasCurvedTop ? "fs-hell--curved-top" : "") @(HasCurvedBottom ? "fs-hell--curved-bottom" : "")">
     @ChildContent
 </div>
 
@@ -15,6 +15,4 @@
     [Parameter] public bool HasCurvedTop { get; set; }
 
     [Parameter] public bool HasCurvedBottom { get; set; }
-
-    
 }

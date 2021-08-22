@@ -1,13 +1,36 @@
-﻿<div class="fs-cta">
-    <MudButton DisableElevation="true" Size="Size.Large" Color="@Colour" Variant="Variant.Filled" @onclick="OnClick">
+﻿@inject IJSRuntime JS
+
+<div class="fs-cta">
+    <MudButton DisableElevation="true" Size="Size.Large" Color="@Colour" Variant="IsImportant ? Variant.Filled : Variant.Outlined" @onclick="HandleClick" EndIcon="@EndIcon" Class="@Class">
         @Text
     </MudButton>
 </div>
 
 @code {
+    [Parameter] public bool IsImportant { get; set; }
+
     [Parameter] public string Text { get; set; }
 
     [Parameter] public Color Colour { get; set; } = Color.Primary;
 
     [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    [Parameter] public string EndIcon { get; set; }
+
+    [Parameter] public string ScrollToId { get; set; }
+
+    [Parameter] public string Class { get; set; }
+
+    public void HandleClick(MouseEventArgs args)
+    {
+        Console.WriteLine("Hello handle click");
+
+        if (ScrollToId != null)
+        {
+            Console.WriteLine("Hello scroll");
+            JS.InvokeVoidAsync($"scroll", ScrollToId);
+        }
+
+        OnClick.InvokeAsync(args);
+    }
 }

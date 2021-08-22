@@ -19,6 +19,10 @@ body, #app {
     position: relative;
 }
 
+.fs-scroll-target {
+    scroll-margin: 100px;
+}
+
 .fs-min-vh-100{
     min-height: 100vh;
 }
@@ -45,8 +49,16 @@ body, #app {
 
 
 
-
 /* Spacing */
+
+.fs .mud-main-content{
+    margin-top:0;
+    padding-top:0;
+}
+
+.fs-heading-spacer {
+    padding-top: 80px;
+}
 
 
 /* Colours */
@@ -108,6 +120,17 @@ body, #app {
 
 .fs-massive-text {
     font-size: 32px;
+}
+
+.fs-heading {
+    font-family: 'Roboto Slab', serif;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+h3.fs-heading {
+    font-size: 16px;
+    font-weight:800;
 }
 
 .valid.modified:not([type=checkbox]) {

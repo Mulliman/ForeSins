@@ -1,0 +1,11 @@
+﻿.fs-grass-spacer {
+    height:50px;
+}
+
+.fs-grass-spacer--small {
+    height: 30px;
+}
+
+.fs-grass-spacer--large {
+    height: 100px;
+}

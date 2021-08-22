@@ -1,0 +1,27 @@
+﻿.fs-hell {
+    background-color: #000000;
+    background-image: linear-gradient(0deg, black 0, rgba(0,0,0,0) 10%), url('/images/fire-400.png'), linear-gradient(0deg, black, #2A0606, black);
+    background-repeat: repeat-x;
+    background-position: bottom;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.fs-hell--grass {
+    margin-top: -20px;
+}
+
+.fs-hell--curved-top {
+    border-top-right-radius: 50% 20px;
+    border-top-left-radius: 50% 20px;
+    border-top: 7px solid rgb(156 133 67 / 53%);
+    padding-top: 30px;
+}
+
+.fs-hell--curved-bottom {
+    border-bottom-right-radius: 50% 20px;
+    border-bottom-left-radius: 50% 20px;
+    border-bottom: 7px solid rgb(156 133 67 / 53%);
+    padding-bottom: 30px;
+}

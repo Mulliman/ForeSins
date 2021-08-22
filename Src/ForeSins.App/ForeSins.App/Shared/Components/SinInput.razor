@@ -3,7 +3,7 @@
 
     <div class="fs-sin-input__fieldset">
         <MudIconButton Icon="@Icons.Material.Filled.Remove" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" @onclick="Decrement" />
-        <input class="fs-sin-input__field" @bind-value="Value" type="number" />
+        <input class="fs-sin-input__field" min="0" max="30" @bind-value="Value" type="number" />
         <MudIconButton Icon="@Icons.Material.Filled.Add" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" @onclick="Increment" />
     </div>
         

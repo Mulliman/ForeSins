@@ -10,12 +10,16 @@
 
 .fs-sin-input__fieldset button {
     margin:0;
+    z-index:999;
 }
 
 .fs-sin-input__field {
-     height:30px;
-     width:50px;
-     text-align:center;
-     padding:2px;
-     border:none;
+    height: 30px;
+    width: 50px;
+    text-align: center;
+    padding: 2px;
+    margin-left: -3px;
+    margin-right: -3px;
+    border: none;
+    font-weight: bold;
 }

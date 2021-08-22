@@ -1,0 +1,19 @@
+﻿.fs-grass{
+    height:50px;
+    background-image: url('images/grass-50.png');
+    background-repeat:repeat-x;
+    background-position:bottom;
+    margin-top:-50px;
+}
+
+.fs-grass--small {
+    height: 30px;
+    background-image: url('images/grass-30.png');
+    margin-top: -30px;
+}
+
+.fs-grass--large {
+    height: 100px;
+    background-image: url('images/grass-100.png');
+    margin-top: -100px;
+}

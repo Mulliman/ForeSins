@@ -3,125 +3,176 @@
 @page "/edit-round"
 @layout MainLayout
 
+@inject Grader Grader
+
 <Green>
-    <div class="fs-heading-spacer"></div>
+	<div class="fs-heading-spacer"></div>
 
-    <div style="display:block; overflow: auto">
-        <h2 class="fs-heading mt-5" style="color:#010;">New round</h2>
+	<div style="display:block; overflow: auto">
+		<h2 class="fs-heading mt-5" style="color:#010;">New round</h2>
 
-        <div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
-            @*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
+		<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
+			@*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
 
-            <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Round Date</h3>
+			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Round Date</h3>
 
-            <MudDatePicker @bind-Date="Date" InputVariant="Variant.Outlined" PickerVariant="PickerVariant.Dialog" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" Style="margin:0" />
+			<MudDatePicker @bind-Date="Date" InputVariant="Variant.Outlined" PickerVariant="PickerVariant.Dialog" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" Style="margin:0" />
 
-            <Cta Text="Confess your sins" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" ScrollToId="step-sins" Class="mt-8" />
-        </div>
-    </div>
+			<Cta Text="Confess your sins" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" ScrollToId="step-sins" Class="mt-8" />
+		</div>
+	</div>
 
-    <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+	<GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
 </Green>
 
 <Hell HasCurvedBottom="true" HasCurvedTop="true" HasGrass="true">
-    <div id="step-sins" class="fs-scroll-target">
-        <h2 class="fs-heading mt-5" style="color:@ForeSinsTheme.White">How did you sin?</h2>
+	<div id="step-sins" class="fs-scroll-target">
+		<h2 class="fs-heading mt-5" style="color:@ForeSinsTheme.White">How did you sin?</h2>
 
-        <SinsInputs></SinsInputs>
-    </div>
+		<SinsInputs ValueChanged="OnSinScoreChanged" Scores="Round"></SinsInputs>
+	</div>
 
-    <Cta Text="Fill in round details" Class="mt-3" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" IsWhite="true" ScrollToId="step-scores" />
+	<Cta Text="Fill in round details" Class="mt-3" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" IsWhite="true" ScrollToId="step-scores" />
 </Hell>
 
 <Bunker>
-    <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+	<GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
 
-    <div id="step-scores" class="fs-scroll-target" style="display:block; overflow: auto">
-        <h2 class="fs-heading mt-5" style="color:#220;">What did you score?</h2>
+	<div  class="" style="display:block; overflow: auto">
+		<h2 id="step-scores" class="fs-scroll-target fs-heading mt-5" style="color:#220;">What did you score?</h2>
 
-        <div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
-            @*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
+		<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
+			@*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
 
-            <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Handicap Index</h3>
-            @*<MudNumericField T="double" Max="54" Min="-10" Format="N1" @bind-Value="HandicapIndex" Variant="Variant.Outlined"></MudNumericField>*@
-            <HandicapIndexInput value="@HandicapIndex" Format="N1"></HandicapIndexInput>
+			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Handicap Index</h3>
+			@*<MudNumericField T="double" Max="54" Min="-10" Format="N1" @bind-Value="HandicapIndex" Variant="Variant.Outlined"></MudNumericField>*@
+			<HandicapIndexInput value="@HandicapIndex" Format="N1"></HandicapIndexInput>
 
-            <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Course Handicap</h3>
-            @*<MudNumericField Max="54" Min="-10" @bind-Value="CourseHandicap" Variant="Variant.Outlined"></MudNumericField>*@
-            <HandicapInput value="@CourseHandicap" ValueChanged="OnHandicapChanged"></HandicapInput>
+			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Course Handicap</h3>
+			@*<MudNumericField Max="54" Min="-10" @bind-Value="CourseHandicap" Variant="Variant.Outlined"></MudNumericField>*@
+			<HandicapInput value="@CourseHandicap" ValueChanged="OnHandicapChanged"></HandicapInput>
 
-            <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Par</h3>
-            <ScoreInput Value="ResultToPar" ValueChanged="OnGrossChanged"></ScoreInput>
+			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Par</h3>
+			<ScoreInput Value="ResultToPar" ValueChanged="OnGrossChanged"></ScoreInput>
 
-            <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Handicap</h3>
-            <ScoreInput Value="ResultToHandicap" ValueChanged="OnNettChanged"></ScoreInput>
+			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Handicap</h3>
+			<ScoreInput Value="ResultToHandicap" ValueChanged="OnNettChanged"></ScoreInput>
 
-            <Cta Text="View result" Class="mt-8" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" ScrollToId="step-scores" />
-        </div>
-    </div>
+			<Cta Text="View result" Class="mt-8" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" ScrollToId="step-results" />
+		</div>
+	</div>
 </Bunker>
 
 <Green>
-    <div style="display:block; overflow: auto">
-        <h2 class="fs-heading mt-5" style="color:#010;">Result</h2>
+	<div id="step-results" class="fs-scroll-target" style="display:block; overflow: auto">
+		<h2 class="fs-heading mt-5" style="color:#010;">Result</h2>
 
-        <div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
-            <h3 class="fs-heading mt-5 mb-5" style="color:@ForeSinsTheme.MainRed">@Date.ToDateString()</h3>
+		<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
+			<h3 class="fs-heading mt-5 mb-5" style="color:@ForeSinsTheme.MainRed">@Date.ToDateString()</h3>
 
-            <div class="fs-text-center"><GradeImage Grade="Grade" Class="fs-max-33" /></div>
-            
-            <div class="d-flex justify-space-around mt-6">
-                <div class="fs-min-25 fs-text-center">
-                    <Horny Text="TO"></Horny>
-                </div>
-                <div class="fs-min-25 fs-text-center">
-                    <strong><GolfScore IsBorderedAndColoured="true" Score="@ResultToPar" /></strong>
-                </div>
-                <div class="fs-min-25 fs-text-center">
-                    <strong><GolfScore IsBorderedAndColoured="true" Score="@ResultToHandicap" /></strong> 
-                </div>
-            </div>
+			<div class="fs-text-center"><GradeImage Grade="Grade" Class="fs-max-33" /></div>
 
-            <Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-8" />
-        </div>
-    </div>
+			<div class="d-flex justify-space-around mt-8">
+				<div class="fs-min-25 fs-text-center">
+					<Horny Text="@Round.Sins.ToString()"></Horny>
+				</div>
+				<div class="fs-min-25 fs-text-center">
+					<strong><GolfScore IsBorderedAndColoured="true" Score="@ResultToPar" /></strong>
+				</div>
+				<div class="fs-min-25 fs-text-center">
+					<strong><GolfScore IsBorderedAndColoured="true" Score="@ResultToHandicap" /></strong>
+				</div>
+			</div>
 
-    
+			<Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-8" />
+		</div>
+	</div>
+
+
 </Green>
 
 @code {
-    [Parameter] public DateTime? Date { get; set; } = DateTime.Today;
+	[Parameter] public Round Round { get; set; } = new Round();
 
-    [Parameter] public double HandicapIndex { get; set; } = 2.1;
+	[Parameter] public DateTime? Date { get; set; } = DateTime.Today;
 
-    [Parameter] public double CourseHandicap { get; set; } = 3;
+	[Parameter] public double HandicapIndex { get; set; } = 2.1;
 
-    [Parameter] public int ResultToPar { get; set; }
+	[Parameter] public double CourseHandicap { get; set; } = 3;
 
-    [Parameter] public int ResultToHandicap { get; set; }
+	[Parameter] public int ResultToPar { get; set; }
 
-    [Parameter] public ScoreType ScoreType { get; set; } = ScoreType.Simple;
+	[Parameter] public int ResultToHandicap { get; set; }
 
-    public Grades Grade { get; set; } = Grades.S;
+	[Parameter] public ScoreType ScoreType { get; set; } = ScoreType.Simple;
 
-    public void OnGrossChanged(int value)
-    {
-        Console.WriteLine("OnGrossChanged " + value);
-        ResultToPar = value;
-        ResultToHandicap = ResultToPar - ((int)CourseHandicap);
-    }
+	public Grades Grade => Grader.Grade(Round);
 
-    public void OnNettChanged(int value)
-    {
-        Console.WriteLine("OnNettChanged " + value);
-        ResultToHandicap = value;
-        ResultToPar = ResultToHandicap + ((int)CourseHandicap);
-    }
+	public void OnGrossChanged(int value)
+	{
+		Console.WriteLine("OnGrossChanged " + value);
+		ResultToPar = value;
+		ResultToHandicap = ResultToPar - ((int)CourseHandicap);
 
-    public void OnHandicapChanged(double value)
-    {
-        Console.WriteLine("OnHandicapChanged " + value);
-        CourseHandicap = value;
-        ResultToHandicap = ResultToPar - ((int)CourseHandicap);
-    }
+		StateHasChanged();
+	}
+
+	public void OnNettChanged(int value)
+	{
+		Console.WriteLine("OnNettChanged " + value);
+		ResultToHandicap = value;
+		ResultToPar = ResultToHandicap + ((int)CourseHandicap);
+
+		StateHasChanged();
+	}
+
+	public void OnHandicapChanged(double value)
+	{
+		Console.WriteLine("OnHandicapChanged " + value);
+		CourseHandicap = value;
+		ResultToHandicap = ResultToPar - ((int)CourseHandicap);
+
+		StateHasChanged();
+	}
+
+	public void OnSinScoreChanged(SinScore value)
+	{
+		Console.WriteLine("OnSinScoreChanged " + value);
+
+		switch (value.Sin)
+		{
+			case Sins.ScrappyDoubles:
+				Round.ScrappyDoubles = value.Value;
+				StateHasChanged();
+				return;
+
+			case Sins.ShockingChips:
+				Round.ShockingChips = value.Value;
+				StateHasChanged();
+				return;
+
+			case Sins.SickeningYips:
+				Round.SickeningYips = value.Value;
+				StateHasChanged();
+				return;
+
+			case Sins.SplashTroubles:
+				Round.SplashTroubles = value.Value;
+				StateHasChanged();
+				return;
+
+			case Sins.StupidDecisions:
+				Round.StupidDecisions = value.Value;
+				StateHasChanged();
+				return;
+
+			case Sins.SquanderedPositions:
+				Round.SquanderedPositions = value.Value;
+				StateHasChanged();
+				return;
+
+			default:
+				return;
+		}		
+	}
 }

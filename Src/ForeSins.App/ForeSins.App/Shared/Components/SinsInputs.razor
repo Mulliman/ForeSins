@@ -1,28 +1,35 @@
 ﻿<div class="fs-max-90 fs-sins-grid">
     <div>
-        <SinInput Sin="Sins.SickeningYips" />
+        <SinInput Sin="Sins.SickeningYips" Value="Scores.SickeningYips" ValueChanged="ValueChanged" />
     </div>
     <div>
-        <SinInput Sin="Sins.ShockingChips" />
-    </div>
-</div>
-<div class="fs-max-90 fs-sins-grid">
-    <div>
-        <SinInput Sin="Sins.SplashTroubles" />
-    </div>
-    <div>
-        <SinInput Sin="Sins.ScrappyDoubles" />
+        <SinInput Sin="Sins.ShockingChips" Value="Scores.ShockingChips" ValueChanged="ValueChanged" />
     </div>
 </div>
 <div class="fs-max-90 fs-sins-grid">
     <div>
-        <SinInput Sin="Sins.SquanderedPositions" />
+        <SinInput Sin="Sins.SplashTroubles" Value="Scores.SplashTroubles" ValueChanged="ValueChanged" />
     </div>
     <div>
-        <SinInput Sin="Sins.StupidDecisions" />
+        <SinInput Sin="Sins.ScrappyDoubles" Value="Scores.ScrappyDoubles"  ValueChanged="ValueChanged" />
+    </div>
+</div>
+<div class="fs-max-90 fs-sins-grid">
+    <div>
+        <SinInput Sin="Sins.SquanderedPositions" Value="Scores.SquanderedPositions" ValueChanged="ValueChanged" />
+    </div>
+    <div>
+        <SinInput Sin="Sins.StupidDecisions" Value="Scores.StupidDecisions" ValueChanged="ValueChanged" />
     </div>
 </div>
 
 @code {
+    [Parameter] public ISinsScores Scores { get; set; }
 
+    [Parameter] public EventCallback<SinScore> ValueChanged { get; set; }
+
+    public void OnChanged(ChangeEventArgs args)
+    {
+        if (ValueChanged.HasDelegate) ValueChanged.InvokeAsync();
+    }
 }

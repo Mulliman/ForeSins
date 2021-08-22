@@ -133,6 +133,56 @@ h3.fs-heading {
     font-weight:800;
 }
 
+
+
+/* Golf */
+
+.fs-under-par {
+    border-color: var(--main-red) !important;
+    color: var(--main-red) !important;
+}
+
+
+.fs-level-par {
+    border-color: var(--main-green) !important;
+    color: var(--main-green) !important;
+}
+
+
+.fs-over-par {
+    border-color: var(--main-blue) !important;
+    color: var(--main-blue) !important;
+}
+
+
+/* Plus or minus */
+
+.fs-plus-or-minus {
+    text-align: center;
+}
+
+.fs-plus-or-minus__fieldset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .fs-plus-or-minus__fieldset button {
+        margin: 0;
+    }
+
+.fs-plus-or-minus__field {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 3px solid #424242;
+    font-weight: bold;
+}
+
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }

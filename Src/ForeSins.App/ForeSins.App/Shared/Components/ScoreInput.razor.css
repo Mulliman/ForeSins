@@ -1,0 +1,27 @@
+﻿.fs-score-input {
+    text-align: center;
+}
+
+.fs-score-input__fieldset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .fs-score-input__fieldset button {
+        margin: 0;
+        z-index: 999;
+    }
+
+.fs-score-input__field {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-width: 3px;
+    border-style:solid;
+    font-weight: bold;
+    border-radius:3px;
+}

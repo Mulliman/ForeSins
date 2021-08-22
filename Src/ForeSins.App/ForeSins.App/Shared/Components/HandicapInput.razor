@@ -1,0 +1,51 @@
+﻿@inject IJSRuntime JS
+
+<div class="fs-handicap-input fs-plus-or-minus">
+    <div class="fs-plus-or-minus__fieldset mt-2">
+        <MudIconButton Icon="@Icons.Material.Filled.Remove" Variant="Variant.Outlined" Color="Color.Dark" Size="Size.Small" @onclick="Decrement" />
+        <input class="fs-plus-or-minus__field" min="@MinHandicap" max="@MaxHandicap" value="@TextValue" @oninput="OnChanged" @onchange="OnChanged" type="number" step="1" />
+        <MudIconButton Icon="@Icons.Material.Filled.Add" Variant="Variant.Outlined" Color="Color.Dark" Size="Size.Small" @onclick="Increment" />
+    </div>
+
+</div>
+
+@code {
+    [Parameter] public double Value { get; set; } = 0;
+
+    [Parameter] public EventCallback<double> ValueChanged { get; set; }
+
+    [Parameter] public string Format { get; set; } = "0";
+
+    public string TextValue { get => Value.ToString(Format); set => Value = Convert.ToDouble(value); }
+
+    public double MinHandicap = -10;
+    public double MaxHandicap = 70;
+
+    public void Decrement()
+    {
+        Value = Value >= MinHandicap + 1 ? Value - 1 : Value;
+        if (ValueChanged.HasDelegate) ValueChanged.InvokeAsync(Value);
+    }
+
+    public void Increment()
+    {
+        Value = Value <= MaxHandicap -1 ? Value + 1 : Value;
+        if (ValueChanged.HasDelegate) ValueChanged.InvokeAsync(Value);
+    }
+
+    public void OnChanged(ChangeEventArgs args)
+    {
+        JS.InvokeVoidAsync("integersOnly");
+
+        var val = (string)args.Value;
+        var parsed = 0.0;
+
+        if (double.TryParse(val, out parsed))
+        {
+            parsed = (int)parsed;
+
+            Value = parsed;
+            if (ValueChanged.HasDelegate) ValueChanged.InvokeAsync(parsed);
+        }
+    }
+}

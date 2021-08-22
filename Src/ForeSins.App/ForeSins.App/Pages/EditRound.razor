@@ -37,12 +37,18 @@
             @*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
 
             <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Handicap Index</h3>
-            <MudNumericField T="double" Max="54" Min="-10" Format="N1" @bind-Value="HandicapIndex" Variant="Variant.Outlined"></MudNumericField>
+            @*<MudNumericField T="double" Max="54" Min="-10" Format="N1" @bind-Value="HandicapIndex" Variant="Variant.Outlined"></MudNumericField>*@
+            <HandicapIndexInput value="@HandicapIndex" Format="N1"></HandicapIndexInput>
 
             <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Course Handicap</h3>
-            <MudNumericField Max="54" Min="-10" @bind-Value="CourseHandicap" Variant="Variant.Outlined"></MudNumericField>
+            @*<MudNumericField Max="54" Min="-10" @bind-Value="CourseHandicap" Variant="Variant.Outlined"></MudNumericField>*@
+            <HandicapInput value="@CourseHandicap" ValueChanged="OnHandicapChanged"></HandicapInput>
 
+            <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Par</h3>
+            <ScoreInput Value="ResultToPar" ValueChanged="OnGrossChanged"></ScoreInput>
 
+            <h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Handicap</h3>
+            <ScoreInput Value="ResultToHandicap" ValueChanged="OnNettChanged"></ScoreInput>
 
             <Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-9" />
         </div>
@@ -52,9 +58,34 @@
 
 
 @code {
-    [Parameter] public double HandicapIndex { get; set; } = 2.0;
+    [Parameter] public double HandicapIndex { get; set; } = 2.1;
 
     [Parameter] public double CourseHandicap { get; set; } = 3;
 
+    [Parameter] public int ResultToPar { get; set; }
+
+    [Parameter] public int ResultToHandicap { get; set; }
+
     [Parameter] public ScoreType ScoreType { get; set; } = ScoreType.Simple;
+
+    public void OnGrossChanged(int value)
+    {
+        Console.WriteLine("OnGrossChanged " + value);
+        ResultToPar = value;
+        ResultToHandicap = ResultToPar - ((int)CourseHandicap);
+    }
+
+    public void OnNettChanged(int value)
+    {
+        Console.WriteLine("OnNettChanged " + value);
+        ResultToHandicap = value;
+        ResultToPar = ResultToHandicap + ((int)CourseHandicap);
+    }
+
+    public void OnHandicapChanged(double value)
+    {
+        Console.WriteLine("OnHandicapChanged " + value);
+        CourseHandicap = value;
+        ResultToHandicap = ResultToPar - ((int)CourseHandicap);
+    }
 }

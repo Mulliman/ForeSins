@@ -9,7 +9,7 @@
 	<div class="fs-heading-spacer"></div>
 
 	<div style="display:block; overflow: auto">
-		<h2 class="fs-heading mt-5" style="color:#010;">New round</h2>
+		<h2 class="fs-heading mt-5">New round</h2>
 
 		<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
 			@*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
@@ -27,7 +27,7 @@
 
 <Hell HasCurvedBottom="true" HasCurvedTop="true" HasGrass="true">
 	<div id="step-sins" class="fs-scroll-target">
-		<h2 class="fs-heading mt-5" style="color:@ForeSinsTheme.White">How did you sin?</h2>
+		<h2 class="fs-heading mt-5">How did you sin?</h2>
 
 		<SinsInputs ValueChanged="OnSinScoreChanged" Scores="Round"></SinsInputs>
 	</div>
@@ -37,42 +37,44 @@
 
 <Bunker>
 	<GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+	<div id="step-scores" class="fs-scroll-target--small">
+		<div style="display:block; overflow: auto">
+			<h2 class="fs-heading mt-5">What did you score?</h2>
 
-	<div  class="" style="display:block; overflow: auto">
-		<h2 id="step-scores" class="fs-scroll-target fs-heading mt-5" style="color:#220;">What did you score?</h2>
+			<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
+				@*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
 
-		<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
-			@*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
+				<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Handicap Index</h3>
+				@*<MudNumericField T="double" Max="54" Min="-10" Format="N1" @bind-Value="HandicapIndex" Variant="Variant.Outlined"></MudNumericField>*@
+				<HandicapIndexInput value="@HandicapIndex" Format="N1"></HandicapIndexInput>
 
-			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Handicap Index</h3>
-			@*<MudNumericField T="double" Max="54" Min="-10" Format="N1" @bind-Value="HandicapIndex" Variant="Variant.Outlined"></MudNumericField>*@
-			<HandicapIndexInput value="@HandicapIndex" Format="N1"></HandicapIndexInput>
+				<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Course Handicap</h3>
+				@*<MudNumericField Max="54" Min="-10" @bind-Value="CourseHandicap" Variant="Variant.Outlined"></MudNumericField>*@
+				<HandicapInput value="@CourseHandicap" ValueChanged="OnHandicapChanged"></HandicapInput>
 
-			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Course Handicap</h3>
-			@*<MudNumericField Max="54" Min="-10" @bind-Value="CourseHandicap" Variant="Variant.Outlined"></MudNumericField>*@
-			<HandicapInput value="@CourseHandicap" ValueChanged="OnHandicapChanged"></HandicapInput>
+				<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Par</h3>
+				<ScoreInput Value="ResultToPar" ValueChanged="OnGrossChanged"></ScoreInput>
 
-			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Par</h3>
-			<ScoreInput Value="ResultToPar" ValueChanged="OnGrossChanged"></ScoreInput>
+				<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Handicap</h3>
+				<ScoreInput Value="ResultToHandicap" ValueChanged="OnNettChanged"></ScoreInput>
 
-			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Handicap</h3>
-			<ScoreInput Value="ResultToHandicap" ValueChanged="OnNettChanged"></ScoreInput>
-
-			<Cta Text="View result" Class="mt-8" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" ScrollToId="step-results" />
+				<Cta Text="View result" Class="mt-8" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" ScrollToId="step-results" />
+			</div>
 		</div>
 	</div>
+
 </Bunker>
 
-<Green>
+<Cosmos>
 	<div id="step-results" class="fs-scroll-target" style="display:block; overflow: auto">
-		<h2 class="fs-heading mt-5" style="color:#010;">Result</h2>
+		<h2 class="fs-heading mt-5">Result</h2>
 
 		<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
 			<h3 class="fs-heading mt-5 mb-5" style="color:@ForeSinsTheme.MainRed">@Date.ToDateString()</h3>
 
 			<div class="fs-text-center"><GradeImage Grade="Grade" Class="fs-max-33" /></div>
 
-			<div class="d-flex justify-space-around mt-8">
+			<div class="d-flex justify-space-around mt-8 mb-5">
 				<div class="fs-min-25 fs-text-center">
 					<Horny Text="@Round.Sins.ToString()"></Horny>
 				</div>
@@ -83,13 +85,11 @@
 					<strong><GolfScore IsBorderedAndColoured="true" Score="@ResultToHandicap" /></strong>
 				</div>
 			</div>
-
-			<Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-8" />
 		</div>
 	</div>
 
-
-</Green>
+	<Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-3 mb-8" />
+</Cosmos>
 
 @code {
 	[Parameter] public Round Round { get; set; } = new Round();
@@ -173,6 +173,6 @@
 
 			default:
 				return;
-		}		
+		}
 	}
 }

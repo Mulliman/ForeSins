@@ -23,7 +23,11 @@ body, #app {
     scroll-margin: 100px;
 }
 
-.fs-min-vh-100{
+.fs-scroll-target--small {
+    scroll-margin: 80px;
+}
+
+.fs-min-vh-100 {
     min-height: 100vh;
 }
 

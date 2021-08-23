@@ -9,6 +9,10 @@
     position: relative;
 }
 
+::deep .fs-heading {
+    color: white;
+}
+
 .fs-hell--grass {
     margin-top: -20px;
 }

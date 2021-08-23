@@ -12,7 +12,7 @@ namespace ForeSins.App
             new Round
             {
                 Date = DateTime.Now,
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 4,
                 ResultToPar = 6,
                 ScrappyDoubles = 1,
@@ -25,7 +25,7 @@ namespace ForeSins.App
             new Round
             {
                 Date = DateTime.Now.AddDays(-1),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 4,
                 ResultToPar = 6,
                 ScrappyDoubles = 1,
@@ -38,7 +38,7 @@ namespace ForeSins.App
             new Round
             {
                 Date = DateTime.Now.AddDays(-2),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 4,
                 ResultToPar = 6,
                 ScrappyDoubles = 1,
@@ -51,7 +51,7 @@ namespace ForeSins.App
             new Round
             {
                 Date = DateTime.Now.AddDays(-3),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 4,
                 ResultToPar = 6,
                 ScrappyDoubles = 0,
@@ -64,7 +64,7 @@ namespace ForeSins.App
             new Round
             {
                 Date = DateTime.Now.AddDays(-4),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 4,
                 ResultToPar = 6,
                 ScrappyDoubles = 1,
@@ -77,7 +77,7 @@ namespace ForeSins.App
             new Round
             {
                 Date = DateTime.Now.AddDays(-10),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 7,
                 ResultToPar = 9,
                 ScrappyDoubles = 1,
@@ -90,7 +90,7 @@ namespace ForeSins.App
             new Round
             {
                 Date = DateTime.Now.AddDays(-20),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = -4,
                 ResultToPar = -2,
                 ScrappyDoubles = 1,
@@ -103,7 +103,7 @@ namespace ForeSins.App
 new Round
             {
                 Date = DateTime.Now.AddDays(-40),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = -2,
                 ResultToPar = 0,
                 ScrappyDoubles = 1,
@@ -116,7 +116,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-60),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 2,
                 ResultToPar = 4,
                 ScrappyDoubles = 10,
@@ -129,7 +129,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-100),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 12,
                 ResultToPar = 14,
                 ScrappyDoubles = 14,
@@ -142,7 +142,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-120),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 4,
                 ResultToPar = 6,
                 ScrappyDoubles = 1,
@@ -155,7 +155,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-180),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 1,
@@ -168,7 +168,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-180),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 1,
@@ -181,7 +181,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-180),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 1,
@@ -194,7 +194,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-180),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 1,
@@ -207,7 +207,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-180),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 1,
@@ -220,7 +220,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-180),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 1,
@@ -232,7 +232,7 @@ new Round
             },new Round
             {
                 Date = DateTime.Now.AddYears(-5),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 10,
@@ -245,7 +245,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddYears(-5),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 10,
@@ -258,7 +258,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddYears(-5),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 10,
@@ -271,7 +271,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddYears(-5),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 10,
@@ -284,7 +284,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddYears(-5),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 10,
@@ -297,7 +297,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddYears(-5),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 10,
@@ -310,7 +310,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddYears(-5),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 10,
@@ -323,7 +323,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddYears(-5),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 8,
                 ResultToPar = 10,
                 ScrappyDoubles = 10,
@@ -336,7 +336,7 @@ new Round
 new Round
             {
                 Date = DateTime.Now.AddDays(-260),
-                Handicap = 2,
+                HandicapIndex = 2,
                 ResultToHandicap = 14,
                 ResultToPar = 16,
                 ScrappyDoubles = 10,

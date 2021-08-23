@@ -4,7 +4,7 @@ namespace ForeSins.App
 {
     public class Round : ISinsScores
     {
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         public uint SickeningYips { get; set; }
 
@@ -20,7 +20,9 @@ namespace ForeSins.App
 
         public uint Sins => SickeningYips + ShockingChips + SplashTroubles + ScrappyDoubles + SquanderedPositions + StupidDecisions;
 
-        public int Handicap { get; set; }
+        public double HandicapIndex { get; set; }
+
+        public int CourseHandicap { get; set; }
 
         public int ResultToPar { get; set; }
 

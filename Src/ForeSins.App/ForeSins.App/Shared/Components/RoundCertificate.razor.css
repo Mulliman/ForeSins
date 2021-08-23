@@ -1,0 +1,13 @@
+﻿.fs-round-cert {
+    display: flex;
+    position: relative;
+    align-content: normal;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 14px 20px 20px;
+    background: white;
+    border-radius: 5px;
+    border-width:3px;
+    border-style:solid;
+}

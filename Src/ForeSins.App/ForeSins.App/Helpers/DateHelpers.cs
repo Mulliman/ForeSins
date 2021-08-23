@@ -11,5 +11,10 @@ namespace ForeSins.App.Helpers
         {
             return date?.ToString("dd MMM yy");
         }
+
+        public static string ToDateString(this DateTime date)
+        {
+            return date.ToString("dd MMM yy");
+        }
     }
 }

@@ -1,0 +1,34 @@
+﻿<div class="fs-max-80 fs-round-cert fs-border-@(Grade.GetGradeClass())">
+	<h3 class="fs-heading mt-5 mb-5" style="color:@ForeSinsTheme.MainRed">@Round.Date.ToDateString()</h3>
+
+	<div class="fs-text-center"><GradeImage Grade="Grade" Class="fs-max-33" /></div>
+
+	<div class="d-flex justify-space-around mt-8 mb-3">
+		<div class="fs-min-25 fs-text-center">
+			<Horny Text="@Round.Sins.ToString()"></Horny>
+		</div>
+		<div class="fs-min-25 fs-text-center">
+			<strong><GolfScore IsBorderedAndColoured="true" Score="@Round.ResultToPar" /></strong>
+		</div>
+		<div class="fs-min-25 fs-text-center">
+			<strong><GolfScore IsBorderedAndColoured="true" Score="@Round.ResultToHandicap" /></strong>
+		</div>
+	</div>
+	<div class="d-flex justify-space-around mb-5">
+		<div class="fs-min-25 fs-text-center">
+			<strong>Sins</strong>
+		</div>
+		<div class="fs-min-25 fs-text-center">
+			<strong>Gross</strong>
+		</div>
+		<div class="fs-min-25 fs-text-center">
+			<strong>Nett</strong>
+		</div>
+	</div>
+</div>
+
+@code {
+	[Parameter] public Round Round { get; set; }
+
+	[Parameter] public Grades Grade { get; set; }
+}

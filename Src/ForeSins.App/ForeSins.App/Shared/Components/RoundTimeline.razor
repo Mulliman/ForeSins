@@ -7,7 +7,7 @@
 
         <MudTimelineItem Color="Color.Transparent" Size="Size.Small" Elevation="0" Variant="Variant.Filled" TimelineAlign="TimelineAlign.End">
             <ItemOpposite>
-                <MudText Align="Align.Center"><strong>@(round.Date.ToString("dd"))</strong><br />@(round.Date.ToString("MMM yy"))</MudText>
+                <MudText Align="Align.Center"><strong>@(round.Date?.ToString("dd"))</strong><br />@(round.Date?.ToString("MMM yy"))</MudText>
             </ItemOpposite>
             <ItemContent>
                 <MudText Align="Align.Center"><Horny Text="@round.Sins.ToString()"></Horny><br /><strong><GolfScore Score="@round.ResultToPar" /></strong> (<GolfScore Score="@round.ResultToHandicap" />)</MudText>

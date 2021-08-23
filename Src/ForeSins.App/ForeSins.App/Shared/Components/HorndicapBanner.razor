@@ -92,7 +92,7 @@
     public Horndicap Horndicap { get; set; }
     public Dictionary<string, Horndicap> SixSixSix { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override Task OnInitializedAsync()
     {
         List<Round> rounds = Fakes.Rounds;
         Horndicap = service.CalculateHorndicap(rounds);
@@ -105,5 +105,7 @@
             { "Months", sixes.Last6Months },
             { "Years", sixes.Last6Years }
         };
+
+        return Task.CompletedTask;
     }
 }

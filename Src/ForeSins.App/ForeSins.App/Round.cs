@@ -4,6 +4,9 @@ namespace ForeSins.App
 {
     public class Round : ISinsScores
     {
+        [System.ComponentModel.DataAnnotations.Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
+
         public DateTime? Date { get; set; }
 
         public uint SickeningYips { get; set; }

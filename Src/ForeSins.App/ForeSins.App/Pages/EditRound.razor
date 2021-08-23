@@ -1,9 +1,12 @@
-﻿@using ForeSins.App.Shared.Surfaces
+﻿@using ForeSins.App.Database
+@using ForeSins.App.Shared.Surfaces
 
 @page "/edit-round"
 @layout MainLayout
 
 @inject Grader Grader
+@inject RoundRepository Repo
+@inject NavigationManager NavManager
 
 <Green>
 	<div class="fs-heading-spacer"></div>
@@ -35,7 +38,7 @@
 	<Cta Text="Fill in round details" Class="mt-3" EndIcon="@Icons.Filled.ArrowDownward" Colour="Color.Primary" IsWhite="true" ScrollToId="step-scores" />
 </Hell>
 
-<Bunker>
+<Green>
 	<GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
 	<div id="step-scores" class="fs-scroll-target--small">
 		<div style="display:block; overflow: auto">
@@ -64,7 +67,7 @@
 	</div>
 
 	<GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
-</Bunker>
+</Green>
 
 <Cosmos HasCurvedTop="true">
 	<div id="step-results" class="fs-scroll-target" style="display:block; overflow: auto">
@@ -72,8 +75,8 @@
 		
 		<RoundCertificate Round="Round" Grade="Grade" />
 	</div>
-
-	<Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-3 mb-8" />
+	 
+	<Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-3 mb-8"  OnClick="SaveRound" />
 </Cosmos>
 
 @code {
@@ -159,5 +162,13 @@
 			default:
 				return;
 		}
+	}
+
+	public async Task SaveRound()
+	{
+		Console.WriteLine("SaveRound");
+		await Repo.SaveRound(Round);
+
+		NavManager.NavigateTo("/dashboard");
 	}
 }

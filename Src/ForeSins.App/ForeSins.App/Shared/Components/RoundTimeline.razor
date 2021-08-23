@@ -1,24 +1,28 @@
 ﻿@inject Grader Grader
 
-<MudTimeline TimelineOrientation="TimelineOrientation.Vertical">
-    @foreach (var round in Rounds)
-    {
-        var grade = Grader.Grade(round);
+@if (Rounds != null)
+{
+	<MudTimeline TimelineOrientation="TimelineOrientation.Vertical">
+		@foreach (var round in Rounds.OrderByDescending(r => r.Date))
+		{
+			var grade = Grader.Grade(round);
 
-        <MudTimelineItem Color="Color.Transparent" Size="Size.Small" Elevation="0" Variant="Variant.Filled" TimelineAlign="TimelineAlign.End">
-            <ItemOpposite>
-                <MudText Align="Align.Center"><strong>@(round.Date?.ToString("dd"))</strong><br />@(round.Date?.ToString("MMM yy"))</MudText>
-            </ItemOpposite>
-            <ItemContent>
-                <MudText Align="Align.Center"><Horny Text="@round.Sins.ToString()"></Horny><br /><strong><GolfScore Score="@round.ResultToPar" /></strong> (<GolfScore Score="@round.ResultToHandicap" />)</MudText>
-            </ItemContent>
-            <ItemDot>
-                <GradeDot Grade="grade" />
-            </ItemDot>
-        </MudTimelineItem>
-    }
-</MudTimeline>
+		 <MudTimelineItem Color="Color.Transparent" Size="Size.Small" Elevation="0" Variant="Variant.Filled" TimelineAlign="TimelineAlign.End">
+		  <ItemOpposite>
+		   <MudText Align="Align.Center"><strong>@(round.Date?.ToString("dd"))</strong><br />@(round.Date?.ToString("MMM yy"))</MudText>
+		  </ItemOpposite>
+		  <ItemContent>
+		   <MudText Align="Align.Center"><Horny Text="@round.Sins.ToString()"></Horny><br /><strong><GolfScore Score="@round.ResultToPar" /></strong> (<GolfScore Score="@round.ResultToHandicap" />)</MudText>
+		  </ItemContent>
+		  <ItemDot>
+		   <GradeDot Grade="grade" />
+		  </ItemDot>
+		 </MudTimelineItem>
+		}
+	</MudTimeline>
+}
+
 
 @code {
-    [Parameter] public List<Round> Rounds { get; set; }
+	[Parameter] public List<Round> Rounds { get; set; }
 }

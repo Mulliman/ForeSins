@@ -1,3 +1,5 @@
+using Blazor.IndexedDB.WebAssembly;
+using ForeSins.App.Database;
 using ForeSins.App.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +25,9 @@ namespace ForeSins.App
             builder.Services.AddMudServices();
             builder.Services.AddTransient<Grader>();
             builder.Services.AddTransient<HorndicapService>();
+
+            builder.Services.AddTransient<RoundRepository>();
+            builder.Services.AddScoped<IIndexedDbFactory, IndexedDbFactory>();
 
             builder.Services.AddOidcAuthentication(options =>
             {

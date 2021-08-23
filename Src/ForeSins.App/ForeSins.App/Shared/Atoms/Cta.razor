@@ -25,11 +25,8 @@
 
     public void HandleClick(MouseEventArgs args)
     {
-        Console.WriteLine("Hello handle click");
-
         if (ScrollToId != null)
         {
-            Console.WriteLine("Hello scroll");
             JS.InvokeVoidAsync($"scroll", ScrollToId);
         }
 

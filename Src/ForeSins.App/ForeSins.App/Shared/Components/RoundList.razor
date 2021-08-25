@@ -31,10 +31,10 @@
 		var grade = Grader.Grade(round);
 
 	 <div class="fs-round-list__item mb-2 fs-max-90 fs-border-@(grade.GetGradeClass())" style="" @onclick="@(() => Redirect(round))">
-	  <div class="fs-round-list__grade"><GradeDot Grade="grade" /></div>
+	  <div class="fs-round-list__grade d-flex"><GradeDot Grade="grade" /></div>
 	  <div class="fs-round-list__date"><p>@(round.Date?.ToString("dd")) @(round.Date?.ToString("MMM yy"))</p></div>
 	  <div class="fs-round-list__scores">
-	   <p><span class="sins"><Horny Text="@round.Sins.ToString().PadSingleChar()"></Horny></span> <strong><GolfScore IsBorderedAndColoured="true" Score="@round.ResultToPar" /></strong> <GolfScore IsBorderedAndColoured="true" Score="@round.ResultToHandicap" /></p>
+	   <p><HornyCircle SinCount="@round.Sins"></HornyCircle> <strong><GolfScore IsBorderedAndColoured="true" Score="@round.ResultToPar" /></strong> <GolfScore IsBorderedAndColoured="true" Score="@round.ResultToHandicap" /></p>
 	  </div>
 	 </div>
 	}

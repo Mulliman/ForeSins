@@ -27,3 +27,19 @@
         margin-top: -10px;
         top: -10px;
     }
+
+    .fs-horny.fs-horny--large::before {
+        background-size: 10px 20px;
+        height: 20px;
+        width: 10px;
+        margin-top: -13px;
+        top: -13px;
+    }
+
+    .fs-horny.fs-horny--large::after {
+        background-size: 10px 20px;
+        height: 20px;
+        width: 10px;
+        margin-top: -13px;
+        top: -13px;
+    }

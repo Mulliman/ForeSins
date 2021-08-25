@@ -21,7 +21,9 @@
 		<div class="fs-666-banner">
 			@foreach (var six in SixSixSix)
 			{
-			 <div class="fs-666-banner__item fs-666-banner__item--first">
+				var startEndClass = six.Key == "Rounds" ? "fs-666-banner__item--first" : six.Key == "Years" ? "fs-666-banner__item--last" : "";
+
+			 <div class="fs-666-banner__item @startEndClass">
 			  <p class="fs-666-banner__time"><strong class="fs-slab fs-large-text fs-main-red">6</strong><br />@six.Key</p>
 			  <img src="images/grades/@(six.Value.Grade.GetGradeClass()).png" class="fs-max-80 fs-grade-image" />
 			  <p class="fs-666-banner__sindex">@six.Value.Sindex.ToString("#.#")</p>

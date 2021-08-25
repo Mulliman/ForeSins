@@ -39,35 +39,3 @@
     vertical-align:middle;
     padding:0px;
 }
-
-::deep .fs-round-list__scores .sins {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    line-height: 40px;
-    vertical-align: middle;
-    padding: 0;
-    border-radius: 1000px;
-    background: radial-gradient(circle, #FFF 0%, rgb(248, 225, 225) 50%, var(--main-red));
-    color: white !important;
-    border: 1px solid var(--main-red);
-    font-weight: bold;
-    margin-right:2px;
-}
-
-::deep .fs-round-list__scores .fs-horny::before {
-    background-size: 10px 20px;
-    height: 20px;
-    width: 10px;
-    margin-top: -13px;
-    top: -13px;
-}
-
-::deep .fs-round-list__scores .fs-horny::after {
-    background-size: 10px 20px;
-    height: 20px;
-    width: 10px;
-    margin-top: -13px;
-    top: -13px;
-}

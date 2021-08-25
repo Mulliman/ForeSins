@@ -15,7 +15,7 @@
 	<div style="display:block; overflow: auto">
 		<h2 class="fs-heading mt-5">@(IsExisting ? "Edit round" : "New round")</h2>
 
-		<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
+		<div class="fs-max-80 fs-input-panel">
 			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Round Date</h3>
 
 			<MudDatePicker @bind-Date="Round.Date" InputVariant="Variant.Outlined" PickerVariant="PickerVariant.Dialog" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" Style="margin:0" />
@@ -43,15 +43,12 @@
 		<div style="display:block; overflow: auto">
 			<h2 class="fs-heading mt-5">What did you score?</h2>
 
-			<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
-				@*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
+			<div class="fs-max-80 fs-input-panel">
 
 				<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Handicap Index</h3>
-				@*<MudNumericField T="double" Max="54" Min="-10" Format="N1" @bind-Value="HandicapIndex" Variant="Variant.Outlined"></MudNumericField>*@
 				<HandicapIndexInput Value="@Round.HandicapIndex" Format="N1"></HandicapIndexInput>
 
 				<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Course Handicap</h3>
-				@*<MudNumericField Max="54" Min="-10" @bind-Value="CourseHandicap" Variant="Variant.Outlined"></MudNumericField>*@
 				<HandicapInput Value="@Round.CourseHandicap" ValueChanged="OnHandicapChanged"></HandicapInput>
 
 				<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Result to Par</h3>

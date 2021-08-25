@@ -59,12 +59,27 @@ body, #app {
     min-width:25%;
 }
 
-/* Spacing */
-
-.fs .mud-main-content{
-    margin-top:0;
-    padding-top:0;
+.fs-input-panel {
+    display: flex;
+    align-content: normal;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 14px 20px 20px;
+    background: white;
+    border-radius: 5px;
 }
+
+    .fs-input-panel .fs-heading{
+        text-shadow:none !important;
+    }
+
+    
+    /* Spacing */
+    .fs .mud-main-content {
+        margin-top: 0;
+        padding-top: 0;
+    }
 
 .fs-heading-spacer {
     padding-top: 80px;

@@ -10,7 +10,8 @@
     overflow: hidden;
 }
 
-::deep .fs-heading {
+::deep .fs-heading,
+::deep h3{
     color: white;
 }
 

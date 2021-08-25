@@ -1,0 +1,11 @@
+﻿<div class="fs-light-surface @(HasCurvedTop ? "fs-light-surface--curved-top" : "") @(HasCurvedBottom ? "fs-light-surface--curved-bottom" : "")">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+
+    [Parameter] public bool HasCurvedTop { get; set; }
+
+    [Parameter] public bool HasCurvedBottom { get; set; }
+}

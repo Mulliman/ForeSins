@@ -1,12 +1,13 @@
 ﻿@using ForeSins.App.Database
 @using ForeSins.App.Shared.Surfaces
 
-@page "/edit-round"
+@page "/edit-round/{roundId:guid?}"
 @layout MainLayout
 
 @inject Grader Grader
 @inject RoundRepository Repo
 @inject NavigationManager NavManager
+@inject IDialogService Dialog
 
 <Green>
 	<div class="fs-heading-spacer"></div>
@@ -15,8 +16,6 @@
 		<h2 class="fs-heading mt-5">New round</h2>
 
 		<div class="fs-max-80" style="display: flex; align-content: normal; flex-direction: column; justify-content: center; margin: 20px auto; padding: 14px 20px 20px; background: white; border-radius: 5px;">
-			@*<MudDatePicker PickerVariant="PickerVariant.Static" Date="@(DateTime.Today)" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" />*@
-
 			<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Round Date</h3>
 
 			<MudDatePicker @bind-Date="Round.Date" InputVariant="Variant.Outlined" PickerVariant="PickerVariant.Dialog" DisableToolbar="true" MaxDate="DateTime.Today" Rounded="true" Style="margin:0" />
@@ -72,29 +71,55 @@
 <Cosmos HasCurvedTop="true">
 	<div id="step-results" class="fs-scroll-target" style="display:block; overflow: auto">
 		<h2 class="fs-heading mt-5">Result</h2>
-		
+
 		<RoundCertificate Round="Round" Grade="Grade" />
 	</div>
-	 
-	<Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-3 mb-8"  OnClick="SaveRound" />
+
+	<Cta Text="Save" EndIcon="@Icons.Filled.Check" IsImportant="true" Colour="Color.Primary" Class="mt-3 mb-8" OnClick="SaveRound" />
 </Cosmos>
 
+<BottomButtons>
+	<Left>
+		<MudFab Icon="@Icons.Filled.ArrowBack" Color="Color.Dark" Style="border:2px solid white" Link="/dashboard"></MudFab>
+	</Left>
+
+	<Right>
+		@if (IsExisting)
+				{
+  <MudFab Icon="@Icons.Filled.Delete" Color="Color.Primary" Style="border:2px solid white" OnClick="DeletePrompt"></MudFab>
+		}
+	</Right>
+</BottomButtons>
+
 @code {
-	[Parameter] public Round Round { get; set; } = new Round() {  HandicapIndex = 8.1, CourseHandicap = 9, Date = DateTime.Today };
+	[Parameter] public Guid? RoundId { get; set; }
 
-	[Parameter] public DateTime? Date { get; set; } = DateTime.Today;
+	[Parameter] public Round Round { get; set; } = new Round() { HandicapIndex = 8.1, CourseHandicap = 9, Date = DateTime.Today };
 
-	[Parameter] public double HandicapIndex { get; set; } = 2.1;
-
-	[Parameter] public double CourseHandicap { get; set; } = 3;
-
-	[Parameter] public int ResultToPar { get; set; }
-
-	[Parameter] public int ResultToHandicap { get; set; }
-
-	[Parameter] public ScoreType ScoreType { get; set; } = ScoreType.Simple;
+	public bool IsExisting = false;
 
 	public Grades Grade => Grader.Grade(Round);
+
+	protected override async Task OnInitializedAsync()
+	{
+		if (!RoundId.HasValue)
+		{
+			var lastRound = await Repo.GetLastRound();
+			Round = new Round() { HandicapIndex = lastRound?.HandicapIndex ?? 0, CourseHandicap = lastRound?.CourseHandicap ?? 0, Date = DateTime.Today };
+		}
+		else
+		{
+			var foundRound = await Repo.GetRound(RoundId.Value);
+
+			if (foundRound == null)
+			{
+				NavManager.NavigateTo("/dashboard");
+			}
+
+			Round = foundRound;
+			IsExisting = true;
+		}
+	}
 
 	public void OnGrossChanged(int value)
 	{
@@ -168,6 +193,33 @@
 	{
 		Console.WriteLine("SaveRound");
 		await Repo.SaveRound(Round);
+
+		NavManager.NavigateTo("/dashboard");
+	}
+
+	public async Task DeletePrompt()
+	{
+		var parameters = new DialogParameters();
+		parameters.Add("ContentText", $"Do you really want to delete this round from {Round.Date.ToDateString()}?");
+		parameters.Add("ButtonText", "Delete");
+		parameters.Add("Color", Color.Primary);
+
+		var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+		var refd = Dialog.Show<Confirm>("Delete", parameters, options);
+
+		var confirmed = await refd.Result;
+
+		if (!confirmed.Cancelled)
+		{
+			await DeleteRound();
+		}
+	}
+
+	public async Task DeleteRound()
+	{
+		Console.WriteLine("DeleteRound");
+		await Repo.DeleteRound(Round.Id);
 
 		NavManager.NavigateTo("/dashboard");
 	}

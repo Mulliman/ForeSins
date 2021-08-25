@@ -1,15 +1,17 @@
 ﻿.fs-cosmos {
     background-color: #000000;
-    background: linear-gradient(0deg, #040113 0%, #090a0f 30%, #090a0f 70%, #040113 100%);
+    background: linear-gradient(0deg, #0C0629 0%, #090a0f 30%, #090a0f 70%, #0C0629 100%);
     border-bottom: 0;
     border-left: 0;
     border-right: 0;
     overflow: hidden;
 }
 
-    ::deep .fs-heading {
-        color:white;
-    }
+::deep .fs-heading,
+::deep h3 {
+    color: white;
+    font-weight:normal;
+}
 
     .fs-cosmos--curved-top {
         border-top-right-radius: 50% 20px;

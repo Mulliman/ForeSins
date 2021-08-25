@@ -1,4 +1,5 @@
 ﻿@inject Grader Grader
+@inject NavigationManager NavManager
 
 @if (Rounds != null)
 {
@@ -7,9 +8,9 @@
 		{
 			var grade = Grader.Grade(round);
 
-		 <MudTimelineItem Color="Color.Transparent" Size="Size.Small" Elevation="0" Variant="Variant.Filled" TimelineAlign="TimelineAlign.End">
+		 <MudTimelineItem Color="Color.Transparent" Size="Size.Small" Elevation="0" Variant="Variant.Filled" TimelineAlign="TimelineAlign.End" @onclick="@(() => Redirect(round))">
 		  <ItemOpposite>
-		   <MudText Align="Align.Center"><strong>@(round.Date?.ToString("dd"))</strong><br />@(round.Date?.ToString("MMM yy"))</MudText>
+		   <MudText @onclick="@(() => Redirect(round))" Align="Align.Center"><strong>@(round.Date?.ToString("dd"))</strong><br />@(round.Date?.ToString("MMM yy"))</MudText>
 		  </ItemOpposite>
 		  <ItemContent>
 		   <MudText Align="Align.Center"><Horny Text="@round.Sins.ToString()"></Horny><br /><strong><GolfScore Score="@round.ResultToPar" /></strong> (<GolfScore Score="@round.ResultToHandicap" />)</MudText>
@@ -25,4 +26,10 @@
 
 @code {
 	[Parameter] public List<Round> Rounds { get; set; }
+
+	public void Redirect(Round round)
+	{
+		Console.WriteLine("Redirect");
+		NavManager.NavigateTo($"/edit-round/{round.Id.ToString("N")}");
+	}
 }

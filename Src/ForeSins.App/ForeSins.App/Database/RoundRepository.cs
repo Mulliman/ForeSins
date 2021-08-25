@@ -77,6 +77,14 @@ namespace ForeSins.App.Database
             }
         }
 
+        public async Task<Round> GetLastRound()
+        {
+            using (var db = await DbFactory.Create<ContextDb>())
+            {
+                return db.Rounds.OrderByDescending(x => x.Date).FirstOrDefault();
+            }
+        }
+
         public async Task<Round> GetRound(Guid id)
         {
             using (var db = await DbFactory.Create<ContextDb>())

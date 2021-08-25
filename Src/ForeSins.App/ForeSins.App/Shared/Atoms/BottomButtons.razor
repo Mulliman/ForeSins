@@ -1,20 +1,20 @@
 ﻿@if (Left != null)
 {
-    <span class="fs-bottom-buttons__left" style="position:fixed; bottom: 16px; left:16px; z-index:2000">
+    <span class="fs-bottom-buttons__left" style="position:fixed; bottom: 16px; left:16px; z-index:1200">
         @Left
     </span>
 }
 
-@if (Middle != null)
+@*@if (Middle != null)
 {
-    <span class="fs-bottom-buttons__middle" style="position:fixed; bottom: 16px; right:16px; z-index:2000">
+    <span class="fs-bottom-buttons__middle" style="position:fixed; bottom: 16px; left: 0; right: 0; margin:0 auto; z-index:1200">
         @Middle
     </span>
-}
+}*@
 
 @if (Right != null)
 {
-    <span class="fs-bottom-buttons__right" style="position:fixed; bottom: 16px; right:16px; z-index:2000">
+    <span class="fs-bottom-buttons__right" style="position:fixed; bottom: 16px; right:16px; z-index:1200">
         @Right
     </span>
 }

@@ -4,8 +4,10 @@
     background-position: 0 0, 0 0;
 }
 
-::deep .fs-heading {
+::deep .fs-heading,
+::deep h3 {
     color: #010;
+    text-shadow: 0 0 10px #cfc;
 }
 
 .fs-green--curved-top {

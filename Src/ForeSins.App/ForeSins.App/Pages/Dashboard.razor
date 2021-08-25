@@ -3,25 +3,89 @@
 @layout MainLayout
 
 @inject RoundRepository Repo
+@inject Services.HorndicapService HorndicapService
 
-<HorndicapBanner></HorndicapBanner>
+@if (Horndicap != null && new[] { Grades.S, Grades.D }.Contains(Horndicap.Grade))
+{
+	<Hell>
+	 <div class="fs-heading-spacer"></div>
+	 <HorndicapBanner Rounds="Rounds"></HorndicapBanner>
 
-<MudText Align="Align.Center" Typo="Typo.h5" Style="margin-bottom:20px;"><span class="fs-slab">Your rounds</span></MudText>
+	 <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+		 <h3>Seditious tales of your slices and shanks instil fear in all that frequent a fairway. Forget under par, you are destined for a prolonged stay in the underworld.</h3>
+		 </div>
+
+		 <div class="fs-text-center">
+	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Primary">Stats</MudButton>
+	  <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Primary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
+
+  </div>
+
+		 <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+	</Hell>
+}
+else if (Horndicap != null && new[] { Grades.B, Grades.C }.Contains(Horndicap.Grade))
+{
+	<Green>
+	 <div class="fs-heading-spacer"></div>
+	 <HorndicapBanner Rounds="Rounds"></HorndicapBanner>
+
+	 <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+		 <h3>To err is human, and your occasional lapses ensure that your place is squarely here on terra firma. A focus on correcting your flaws may allow you to ascend into the heavens.</h3>
+		 </div>
+
+		 <div class="fs-text-center">
+	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary">Stats</MudButton>
+	  <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
+
+  </div>
+
+		 <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+	</Green>
+}
+else if (Horndicap != null && new[] { Grades.G, Grades.A }.Contains(Horndicap.Grade))
+{
+	<Cosmos>
+	 <div class="fs-heading-spacer"></div>
+	 <HorndicapBanner Rounds="Rounds"></HorndicapBanner>
+
+	 <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+		 <h3>Stories of your virtue fill the songs and stories of mere mortals. Zeus, Odin, and the Flying Spaghetti Monster all admire your pursuit of perfection.</h3>
+	 </div>
+
+	 <div class="fs-text-center">
+	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary">Stats</MudButton>
+	  <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
+
+  </div>
+
+	 <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+	</Cosmos>
+}
+
+<Light HasCurvedTop="true">
+	<MudText Align="Align.Center" Typo="Typo.h5" Style="margin-bottom:20px;"><span id="your-rounds" class="fs-slab fs-scroll-target">Your rounds</span></MudText>
 
 <RoundTimeline Rounds="Rounds"></RoundTimeline>
+</Light>
+
+
 
 <BottomButtons>
-    <Right>
-        <MudFab Icon="@Icons.Filled.Add" Color="Color.Secondary" Link="/edit-round"></MudFab>
-    </Right>
+ <Right>
+  <MudFab Icon="@Icons.Filled.Add" Color="Color.Secondary" Link="/edit-round" Style="border:2px solid white"></MudFab>
+ </Right>
 </BottomButtons>
 
 @code {
-    public List<Round> Rounds { get; set; }
+	public List<Round> Rounds { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        Rounds = await Repo.GetRounds();
-    }
-    
+	public Horndicap Horndicap { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		Rounds = await Repo.GetRounds();
+		Horndicap = HorndicapService.CalculateHorndicap(Rounds);
+	}
+
 }

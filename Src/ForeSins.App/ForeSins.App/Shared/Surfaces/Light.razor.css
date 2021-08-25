@@ -1,0 +1,27 @@
+﻿::deep .fs-heading {
+    color: #444;
+}
+
+.fs-light-surface {
+    background: #eee;
+    background-image: linear-gradient(180deg, #DDD 0%, #FFF 80%);
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    position: relative;
+}
+
+.fs-light-surface--curved-top {
+    border-top-right-radius: 50% 20px;
+    border-top-left-radius: 50% 20px;
+    border-top: 7px solid #AAA;
+    padding-top: 30px;
+    margin-top: -30px;
+}
+
+.fs-light-surface--curved-bottom {
+    border-bottom-right-radius: 50% 20px;
+    border-bottom-left-radius: 50% 20px;
+    border-top: 7px solid #AAA;
+    padding-bottom: 30px;
+}

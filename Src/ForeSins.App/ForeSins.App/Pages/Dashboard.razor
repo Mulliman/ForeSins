@@ -64,9 +64,9 @@ else if (Horndicap != null && new[] { Grades.G, Grades.A }.Contains(Horndicap.Gr
 }
 
 <Light HasCurvedTop="true">
-	<MudText Align="Align.Center" Typo="Typo.h5" Style="margin-bottom:20px;"><span id="your-rounds" class="fs-slab fs-scroll-target">Your rounds</span></MudText>
+	<MudText Align="Align.Center" Typo="Typo.h2" Class="fs-heading" Style="margin-bottom:20px;"><span id="your-rounds" class="fs-slab fs-scroll-target">Your rounds</span></MudText>
 
-<RoundTimeline Rounds="Rounds"></RoundTimeline>
+<RoundList Rounds="Rounds" GroupByYear="true"></RoundList>
 </Light>
 
 

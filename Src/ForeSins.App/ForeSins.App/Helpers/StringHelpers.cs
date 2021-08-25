@@ -27,5 +27,20 @@ namespace ForeSins.App.Helpers
         {
             return Regex.Replace(str, "[a-z][A-Z]", m => $"{m.Value[0]}-{char.ToLower(m.Value[1])}");
         }
+
+        public static string PadSingleChar(this string str)
+        {
+            if(string.IsNullOrEmpty(str))
+            {
+                return str;
+            }
+
+            if (str.Length == 1)
+            {
+                return $" {str} ";
+            }
+
+            return str;
+        }
     }
 }

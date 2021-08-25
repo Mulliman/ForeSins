@@ -2,3 +2,24 @@
     background: rgb(77,178,88);
     background: linear-gradient(110deg, rgba(77,178,88,1) 0%, rgba(76,176,87,1) 19%, rgba(73,170,88,1) 20%, rgba(73,170,88,1) 39%, rgba(77,178,88,1) 40%, rgba(77,178,88,1) 59%, rgba(73,170,88,1) 60%, rgba(73,170,88,1) 79%, rgba(77,178,88,1) 80%, rgba(73,170,88,1) 100%);
 }
+
+::deep .fs-heading,
+::deep h3 {
+    color: #FFFFFF;
+    text-shadow: 0 0 10px #125E12;
+}
+
+.fs-fairway--curved-top {
+    border-top-right-radius: 50% 20px;
+    border-top-left-radius: 50% 20px;
+    border-top: 7px solid rgba(0,0,0, 0.3);
+    padding-top: 30px;
+    margin-top: -30px;
+}
+
+.fs-fairway--curved-bottom {
+    border-bottom-right-radius: 50% 20px;
+    border-bottom-left-radius: 50% 20px;
+    border-bottom: 7px solid rgba(0,0,0, 0.3);
+    padding-bottom: 30px;
+}

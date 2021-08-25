@@ -1,4 +1,4 @@
-﻿<div class="fs-fairway" style="@Style">
+﻿<div class="fs-fairway @(HasCurvedTop ? "fs-fairway--curved-top" : "") @(HasCurvedBottom ? "fs-fairway--curved-bottom" : "")" style="@Style">
     @ChildContent
 </div>
 
@@ -6,4 +6,8 @@
     [Parameter] public RenderFragment ChildContent { get; set; }
 
     [Parameter] public string Style { get; set; }
+
+    [Parameter] public bool HasCurvedTop { get; set; }
+
+    [Parameter] public bool HasCurvedBottom { get; set; }   
 }

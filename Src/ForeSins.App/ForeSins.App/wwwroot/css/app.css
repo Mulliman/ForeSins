@@ -75,6 +75,15 @@ body, #app {
     margin-right: auto;
 }
 
+.fs-equal-3 {
+    display: flex;
+    align-items: center;
+}
+
+    .fs-equal-3 div {
+        flex: 1;
+    }
+
 
 /* Colours */
 .fs-main-red {
@@ -141,6 +150,10 @@ body, #app {
     text-align: center;
 }
 
+.fs-text-compact{
+    line-height:1.2;
+}
+
 .fs-slab {
     font-family: 'Roboto Slab', serif;
 }
@@ -155,6 +168,10 @@ body, #app {
 
 .fs-regular-text {
     font-size: 14px;
+}
+
+.fs-medium-text {
+    font-size: 16px;
 }
 
 .fs-large-text{

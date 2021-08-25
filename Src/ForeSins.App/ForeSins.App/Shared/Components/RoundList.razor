@@ -1,0 +1,57 @@
+﻿@inject Grader Grader
+@inject NavigationManager NavManager
+
+@if (Rounds != null)
+{
+	<div class="fs-round-list">
+	 @if (GroupByYear)
+	 {
+		@foreach (var group in GroupedRounds)
+		{
+		 <h4 class="my-3 fs-text-center">@group.Key</h4>
+			foreach (var round in group.Value.OrderByDescending(r => r.Date))
+			{
+				RenderRound(round);
+			}
+		}
+	 }
+	 else
+	 {
+		@foreach (var round in Rounds.OrderByDescending(r => r.Date))
+		{
+			RenderRound(round);
+		}
+	 }
+	</div>
+}
+
+@{
+	void RenderRound(Round round)
+	{
+		var grade = Grader.Grade(round);
+
+	 <div class="fs-round-list__item mb-2 fs-max-90 fs-border-@(grade.GetGradeClass())" style="" @onclick="@(() => Redirect(round))">
+	  <div class="fs-round-list__grade"><GradeDot Grade="grade" /></div>
+	  <div class="fs-round-list__date"><p>@(round.Date?.ToString("dd")) @(round.Date?.ToString("MMM yy"))</p></div>
+	  <div class="fs-round-list__scores">
+	   <p><span class="sins"><Horny Text="@round.Sins.ToString().PadSingleChar()"></Horny></span> <strong><GolfScore IsBorderedAndColoured="true" Score="@round.ResultToPar" /></strong> <GolfScore IsBorderedAndColoured="true" Score="@round.ResultToHandicap" /></p>
+	  </div>
+	 </div>
+	}
+}
+
+
+@code {
+	[Parameter] public List<Round> Rounds { get; set; }
+
+	private Dictionary<string, List<Round>> _groupedRounds;
+	public Dictionary<string, List<Round>> GroupedRounds => _groupedRounds ?? (_groupedRounds = Rounds.GroupBy(r => r.Date?.Year.ToString()).ToDictionary(g => g.Key, g => g.ToList()));
+
+	[Parameter] public bool GroupByYear { get; set; }
+
+	public void Redirect(Round round)
+	{
+		Console.WriteLine("Redirect");
+		NavManager.NavigateTo($"/edit-round/{round.Id.ToString("N")}");
+	}
+}

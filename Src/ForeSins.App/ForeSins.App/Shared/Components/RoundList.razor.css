@@ -15,15 +15,25 @@
 }
 
 .fs-round-list__grade {
-    flex:15;
+    flex:10;
 }
 
 .fs-round-list__date {
-    flex: 30;
+    flex: 40;
     text-align:center;
+    font-weight:bold;
+}
+
+@media only screen and (min-width: 360px) {
+    .fs-round-list__date {
+        font-size: 16px;
+    }
 }
 
 .fs-round-list__scores {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     flex: 55;
     text-align: right;
 }

@@ -34,7 +34,9 @@
 	  <div class="fs-round-list__grade d-flex"><GradeDot Grade="grade" /></div>
 	  <div class="fs-round-list__date"><p>@(round.Date?.ToString("dd")) @(round.Date?.ToString("MMM yy"))</p></div>
 	  <div class="fs-round-list__scores">
-	   <p><HornyCircle SinCount="@round.Sins"></HornyCircle> <strong><GolfScore IsBorderedAndColoured="true" Score="@round.ResultToPar" /></strong> <GolfScore IsBorderedAndColoured="true" Score="@round.ResultToHandicap" /></p>
+	   <HornyCircle SinCount="@round.Sins"></HornyCircle> 
+	   <strong><GolfScore IsBorderedAndColoured="true" Score="@round.ResultToPar" /></strong> 
+	   <GolfScore IsBorderedAndColoured="true" Score="@round.ResultToHandicap" />
 	  </div>
 	 </div>
 	}

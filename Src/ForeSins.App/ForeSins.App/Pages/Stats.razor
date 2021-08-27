@@ -1,0 +1,155 @@
+﻿@page "/stats"
+@using ForeSins.App.Database
+@layout MainLayout
+
+@inject RoundRepository Repo
+@inject Services.HorndicapService HorndicapService
+
+<Cosmos>
+	<div class="fs-heading-spacer"></div>
+
+	<div class="fs-max-90 fs-input-panel fs-margin-auto fs-text-center">
+		<h3 class="fs-heading mt-5">Your progress</h3>
+		<MudChart ChartType="ChartType.Line" ChartSeries="@Series" XAxisLabels="@XAxisLabels" ChartOptions="Options" Width="100%"></MudChart>
+	</div>
+
+</Cosmos>
+
+<Hell>
+	<div id="step-sins" class="fs-scroll-target" style="z-index:1111; position:relative">
+		<h2 class="fs-heading mt-5">How did you sin?</h2>
+
+		<div class="fs-margin-auto fs-text-center">
+			<div class="fs-max-80 fs-input-panel" style="background:transparent;">
+				<MudSelect T="string" Variant="Variant.Outlined" @bind-Value="SelectedStat" OnInternalInputChanged="() => StateHasChanged()" Class="fs-white-50-select" Dense="true" >
+					<MudSelectItem Value="@("6 year average")" />
+					<MudSelectItem Value="@("6 month average")" />
+					<MudSelectItem Value="@("6 round average")" />
+					<MudSelectItem Value="@("6 rounds vs 6 months")" />
+					<MudSelectItem Value="@("6 rounds vs 6 years")" />
+					<MudSelectItem Value="@("Total sins")" />
+				</MudSelect>
+			</div>
+
+			
+		</div>
+		
+
+		@if(SixSixSixSins != null)
+		{
+			@if(SelectedStat == "6 year average")
+			{
+				<SinsInputs Averages="SixSixSixSins.Last6Years" IsReadonly="true"></SinsInputs>
+			}
+			else if(SelectedStat == "6 month average")
+			{
+				<SinsInputs Averages="SixSixSixSins.Last6Months" IsReadonly="true"></SinsInputs>
+			}
+			else if(SelectedStat == "6 round average")
+			{
+				<SinsInputs Averages="SixSixSixSins.Last6Rounds" IsReadonly="true"></SinsInputs>
+			}
+			else if(SelectedStat == "6 rounds vs 6 months")
+			{
+				<SinsInputs Averages="RoundsVsMonths" IsPlusMinusStyled="true" IsReadonly="true"></SinsInputs>
+			}
+			else if(SelectedStat == "6 rounds vs 6 years")
+			{
+				<SinsInputs Averages="RoundsVsYears" IsPlusMinusStyled="true" IsReadonly="true"></SinsInputs>
+			}
+			else if(SelectedStat == "Total sins")
+			{
+				<SinsInputs Averages="Totals" IsReadonly="true"></SinsInputs>
+			}
+			else
+			{
+				<SinsInputs Averages="SixSixSixSins.Last6Years" IsReadonly="true"></SinsInputs>
+			}
+		}
+		
+	</div>
+</Hell>
+
+<Light>
+<div class="mx-2 my-5">
+<h2 class="fs-heading py-2">Round history</h2>
+
+<MudTable FixedHeader="true" Items="@Rounds" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.None" Height="@TableHeight">
+	 <HeaderContent>
+        <MudTh Style="padding:10px 2px 2px;"></MudTh>
+        <MudTh Style="padding:10px 2px 2px;"><img src="/images/small-sins/yips.png" alt="Yips" title="yips" /></MudTh>
+        <MudTh Style="padding:10px 2px 2px;"><img src="/images/small-sins/chips.png" /></MudTh>
+        <MudTh Style="padding:10px 2px 2px;"><img src="/images/small-sins/trouble.png" /></MudTh>
+        <MudTh Style="padding:10px 2px 2px;"><img src="/images/small-sins/double.png" /></MudTh>
+        <MudTh Style="padding:10px 2px 2px;"><img src="/images/small-sins/position.png" /></MudTh>
+        <MudTh Style="padding:10px 2px 2px;"><img src="/images/small-sins/decision.png" /></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Date" Style="padding:2px; text-align:center;">@context.Date?.ToString("dd/MM")</MudTd>
+        <MudTd DataLabel="Sickening Yips" Style="padding:2px; text-align:center;">@context.SickeningYips.ToZeroDot()</MudTd>
+        <MudTd DataLabel="Shocking Chips" Style="padding:2px; text-align:center;">@context.ShockingChips.ToZeroDot()</MudTd>
+        <MudTd DataLabel="Splash Troubles" Style="padding:2px; text-align:center;">@context.SplashTroubles.ToZeroDot()</MudTd>
+        <MudTd DataLabel="Scrappy Doubles" Style="padding:2px; text-align:center;">@context.ScrappyDoubles.ToZeroDot()</MudTd>
+        <MudTd DataLabel="Squandered Positions" Style="padding:2px; text-align:center;">@context.SquanderedPositions.ToZeroDot()</MudTd>
+        <MudTd DataLabel="Stupid Decisions" Style="padding:2px; text-align:center;">@context.StupidDecisions.ToZeroDot()</MudTd>
+    </RowTemplate>
+ </MudTable>
+</div>
+	
+</Light>
+
+<BottomButtons>
+	<Left>
+		<MudFab Icon="@Icons.Filled.ArrowBack" Color="Color.Dark" Style="border:2px solid white" Link="/dashboard"></MudFab>
+	</Left>
+</BottomButtons>
+
+
+@code {
+	public List<Round> Rounds { get; set; } = new List<Round>();
+
+	public Horndicap Horndicap { get; set; }
+	public IEnumerable<Horndicap> HorndicapHistory { get; set; }
+	public SixSixSixSins SixSixSixSins { get; set; }
+	public SinAverages Totals { get; set; }
+	public SinAverages RoundsVsMonths { get; set; }
+	public SinAverages RoundsVsYears { get; set; }
+
+	public List<ChartSeries> Series = new List<ChartSeries>();
+	public ChartOptions Options = new ChartOptions();
+	public string[] XAxisLabels = new string[0];
+
+	public string TableHeight => (Rounds != null && Rounds.Count > 10) ? "80vh" : "40vh";
+
+	public string SelectedStat { get; set; } = "6 year average";
+
+	protected override async Task OnInitializedAsync()
+	{
+		var rounds = await Repo.GetRounds();
+		Rounds = rounds.OrderByDescending(x => x.Date).ToList();
+
+		Horndicap = HorndicapService.CalculateHorndicap(Rounds);
+		HorndicapHistory = HorndicapService.CalculateHorndicapHistory(Rounds);
+
+		SixSixSixSins = HorndicapService.CalculateSixSixSixOfSins(Rounds);
+
+		Console.WriteLine("SquanderedPositions" + SixSixSixSins.Last6Years.SquanderedPositions);
+
+		Totals =  HorndicapService.CalculateTotals(Rounds);
+		RoundsVsMonths = HorndicapService.CreateVsAverages(SixSixSixSins.Last6Months, SixSixSixSins.Last6Rounds);
+		RoundsVsYears = HorndicapService.CreateVsAverages(SixSixSixSins.Last6Years, SixSixSixSins.Last6Rounds);
+
+		Options.ChartPalette = new[] { ForeSinsTheme.MainRed, ForeSinsTheme.MainGreen, ForeSinsTheme.MainBlue };
+		Options.YAxisFormat = " ";
+
+		Console.WriteLine("SquanderedPositions" + SixSixSixSins.Last6Years.SquanderedPositions);
+
+		XAxisLabels = Rounds.Select(r => string.Empty).ToArray();
+		Series.Add(new ChartSeries { Name = "Sins", Data = Rounds.OrderBy(x => x.Date).Select(r => (double)r.Sins).ToArray() });
+		Series.Add(new ChartSeries { Name = "Horndicap", Data = HorndicapHistory.Select(r => (double)r.Sindex).ToArray() });
+		Series.Add(new ChartSeries { Name = "Handicap", Data = Rounds.OrderBy(x => x.Date).Select(r => (double)r.HandicapIndex).ToArray() });
+
+		Console.WriteLine("SquanderedPositions" + SixSixSixSins.Last6Years.SquanderedPositions);
+	}
+
+}

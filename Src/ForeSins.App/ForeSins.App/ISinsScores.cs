@@ -15,6 +15,21 @@
         uint StupidDecisions { get; set; }
     }
 
+    public interface ISinsAverages
+    {
+        double SickeningYips { get; set; }
+
+        double ShockingChips { get; set; }
+
+        double SplashTroubles { get; set; }
+
+        double ScrappyDoubles { get; set; }
+
+        double SquanderedPositions { get; set; }
+
+        double StupidDecisions { get; set; }
+    }
+
     public class SinScore
     {
         public Sins Sin { get; set; }

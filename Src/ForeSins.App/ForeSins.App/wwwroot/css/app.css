@@ -11,9 +11,14 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+/* Mud overrides */
+
+::deep .mud-charts-yaxis{
+    display:none !important;
+}
+
 /*font-family: 'Oswald', sans-serif;
 font-family: 'Roboto Slab', serif;*/
-
 body, #app {
     min-height: 100vh;
     position: relative;
@@ -61,6 +66,7 @@ body, #app {
 
 .fs-input-panel {
     display: flex;
+    position:relative;
     align-content: normal;
     flex-direction: column;
     justify-content: center;
@@ -109,9 +115,31 @@ body, #app {
     color: #CD991E;
 }
 
-/* Borders */
+::deep .fs-main-white {
+    color: #FFFFFF !important;
+}
 
-.fs-border-gold, .fs-border-g, .fs-border-a{
+/* Forms */
+
+.fs-white-select.mud-select {
+    background:white !important;
+}
+
+.fs-white-50-select.mud-select {
+    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0,0,0, 0.5);
+    border-radius: 5px;
+    color: #fff;
+}
+
+    .fs-white-50-select.mud-select .mud-select-input, 
+        .fs-white-50-select.mud-select .mud-select-input svg {
+        color: #fff;
+        fill: white;
+    }
+
+/* Borders */
+.fs-border-gold, .fs-border-g, .fs-border-a {
     border-color: var(--main-gold);
 }
 
@@ -214,8 +242,11 @@ h2.fs-heading {
     letter-spacing: 1px;
 }
 
-/* Golf */
+.fs-input-panel .fs-heading{
+    color: var(--main-red) !important;
+}
 
+/* Golf */
 .fs-under-par {
     border-color: var(--main-red) !important;
     color: var(--main-red) !important;

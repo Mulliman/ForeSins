@@ -1,30 +1,80 @@
 ﻿<div class="fs-max-90 fs-sins-grid">
     <div>
-        <SinInput Sin="Sins.SickeningYips" Value="Scores.SickeningYips" ValueChanged="ValueChanged" />
+        @if(IsAverages)
+        {
+            <SinInput Sin="Sins.SickeningYips" Average="Averages.SickeningYips" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
+        else
+        {
+            <SinInput Sin="Sins.SickeningYips" Value="Scores.SickeningYips" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
     </div>
     <div>
-        <SinInput Sin="Sins.ShockingChips" Value="Scores.ShockingChips" ValueChanged="ValueChanged" />
+        @if(IsAverages)
+        {
+            <SinInput Sin="Sins.ShockingChips" Average="Averages.ShockingChips" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
+        else
+        {
+            <SinInput Sin="Sins.ShockingChips" Value="Scores.ShockingChips" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
     </div>
 </div>
 <div class="fs-max-90 fs-sins-grid">
     <div>
-        <SinInput Sin="Sins.SplashTroubles" Value="Scores.SplashTroubles" ValueChanged="ValueChanged" />
+        @if(IsAverages)
+        {
+            <SinInput Sin="Sins.SplashTroubles" Average="Averages.SplashTroubles" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
+        else
+        {
+            <SinInput Sin="Sins.SplashTroubles" Value="Scores.SplashTroubles" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
     </div>
     <div>
-        <SinInput Sin="Sins.ScrappyDoubles" Value="Scores.ScrappyDoubles"  ValueChanged="ValueChanged" />
+        @if(IsAverages)
+        {
+            <SinInput Sin="Sins.ScrappyDoubles" Average="Averages.ScrappyDoubles" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
+        else
+        {
+            <SinInput Sin="Sins.ScrappyDoubles" Value="Scores.ScrappyDoubles" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
     </div>
 </div>
 <div class="fs-max-90 fs-sins-grid">
     <div>
-        <SinInput Sin="Sins.SquanderedPositions" Value="Scores.SquanderedPositions" ValueChanged="ValueChanged" />
+        @if(IsAverages)
+        {
+            <SinInput Sin="Sins.SquanderedPositions" Average="Averages.SquanderedPositions" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
+        else
+        {
+            <SinInput Sin="Sins.SquanderedPositions" Value="Scores.SquanderedPositions" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
     </div>
     <div>
-        <SinInput Sin="Sins.StupidDecisions" Value="Scores.StupidDecisions" ValueChanged="ValueChanged" />
+        @if(IsAverages)
+        {
+            <SinInput Sin="Sins.StupidDecisions" Average="Averages.StupidDecisions" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
+        else
+        {
+            <SinInput Sin="Sins.StupidDecisions" Value="Scores.StupidDecisions" ValueChanged="ValueChanged" IsReadonly="IsReadonly" IsAverage="IsAverages" IsPlusMinusStyled="IsPlusMinusStyled" />
+        }
     </div>
 </div>
 
 @code {
     [Parameter] public ISinsScores Scores { get; set; }
+
+    [Parameter] public ISinsAverages Averages { get; set; }
+
+    [Parameter] public bool IsPlusMinusStyled { get; set; }
+
+    public bool IsAverages => Scores == null && Averages != null;
+
+    [Parameter] public bool IsReadonly { get; set; }
 
     [Parameter] public EventCallback<SinScore> ValueChanged { get; set; }
 

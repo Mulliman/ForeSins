@@ -28,7 +28,7 @@
 </Green>
 
 <Hell HasCurvedBottom="true" HasCurvedTop="true" HasGrass="true">
-	<div id="step-sins" class="fs-scroll-target" style="z-index:99999; position:relative">
+	<div id="step-sins" class="fs-scroll-target" style="z-index:1111; position:relative">
 		<h2 class="fs-heading mt-5">How did you sin?</h2>
 
 		<SinsInputs ValueChanged="OnSinScoreChanged" Scores="Round"></SinsInputs>
@@ -46,7 +46,7 @@
 			<div class="fs-max-80 fs-input-panel">
 
 				<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Handicap Index</h3>
-				<HandicapIndexInput Value="@Round.HandicapIndex" Format="N1"></HandicapIndexInput>
+				<HandicapIndexInput Value="@Round.HandicapIndex" ValueChanged="OnIndexChanged" Format="N1"></HandicapIndexInput>
 
 				<h3 class="fs-heading mt-5" style="color:@ForeSinsTheme.MainRed">Course Handicap</h3>
 				<HandicapInput Value="@Round.CourseHandicap" ValueChanged="OnHandicapChanged"></HandicapInput>
@@ -142,6 +142,12 @@
 		Round.CourseHandicap = (int)value;
 		Round.ResultToHandicap = Round.ResultToPar - ((int)Round.CourseHandicap);
 
+		StateHasChanged();
+	}
+
+	public void OnIndexChanged(double value)
+	{
+		Round.HandicapIndex = value;
 		StateHasChanged();
 	}
 

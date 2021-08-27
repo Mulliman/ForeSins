@@ -1,10 +1,12 @@
-﻿@using ForeSins.App.Shared.Atoms
+﻿@using ForeSins.App.Database
+@using ForeSins.App.Shared.Atoms
 @using ForeSins.App.Shared.Surfaces
 
 @page "/"
 @layout PlainLayout
 
 @inject NavigationManager NavigationManager
+@inject RoundRepository Repo
 
 <Fairway>
     <MudGrid Justify="Justify.Center" Class="fs-min-vh-100" Spacing="0">
@@ -23,8 +25,20 @@
 </Fairway>
 
 @code{
+    protected override async Task OnInitializedAsync()
+	{
+		var rounds = await Repo.GetRounds();
+
+        if(rounds != null && rounds.Any())
+        {
+            NavigationManager.NavigateTo("/dashboard");
+        }
+	}
+
     public void GetStarted()
     {
         NavigationManager.NavigateTo("/dashboard");
     }
+
+
 }

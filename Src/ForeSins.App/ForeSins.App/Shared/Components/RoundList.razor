@@ -6,7 +6,7 @@
 	<div class="fs-round-list">
 	 @if (GroupByYear)
 	 {
-		@foreach (var group in GroupedRounds)
+		@foreach (var group in GroupedRounds.OrderByDescending(g => g.Key))
 		{
 		 <h4 class="my-3 fs-text-center">@group.Key</h4>
 			foreach (var round in group.Value.OrderByDescending(r => r.Date))

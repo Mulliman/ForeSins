@@ -23,3 +23,19 @@
     border: none;
     font-weight: bold;
 }
+
+.fs-sin-input__field[readonly] {
+    background: rgba(0,0,0,0.75);
+    color:white;
+    border-radius: 5px;
+}
+
+    .fs-sin-input__field.fs-sin-input__field--plus[readonly] {
+        background: rgba(100,0,0,0.9);
+    }
+
+
+    .fs-sin-input__field.fs-sin-input__field--minus[readonly] {
+        background: rgba(0,100,0,0.9);
+    }
+

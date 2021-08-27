@@ -2,9 +2,25 @@
     <Sin TheSin="Sin" OnClick="Increment" />
 
     <div class="fs-sin-input__fieldset">
-        <MudIconButton Icon="@Icons.Material.Filled.Remove" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" @onclick="Decrement" />
-        <input class="fs-sin-input__field" min="0" max="30" value="@Value" @oninput="OnChanged" @onchange="OnChanged" type="number" />
-        <MudIconButton Icon="@Icons.Material.Filled.Add" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" @onclick="Increment" />
+        @if (!IsReadonly)
+        {
+            <MudIconButton Icon="@Icons.Material.Filled.Remove" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" @onclick="Decrement" />
+        }
+        
+        @if (IsAverage)
+        {
+            <input class="fs-sin-input__field @GetPlusMinusClass(Average)" min="0" max="30" value="@Average" @oninput="OnChanged" @onchange="OnChanged" type="number" @attributes="Attrs" />
+        }
+        else
+        {
+            <input class="fs-sin-input__field" min="0" max="30" value="@Value" @oninput="OnChanged" @onchange="OnChanged" type="number" @attributes="Attrs" />
+        }
+        
+        
+        @if (!IsReadonly)
+        {
+            <MudIconButton Icon="@Icons.Material.Filled.Add" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" @onclick="Increment" />
+        }
     </div>
         
 </div>
@@ -14,7 +30,19 @@
 
     [Parameter] public uint Value { get; set; }
 
+    [Parameter] public double Average { get; set; }
+
+    [Parameter] public bool IsAverage { get; set; }
+
+    [Parameter] public bool IsReadonly { get; set; }
+
+    [Parameter] public bool IsPlusMinusStyled { get; set; }
+
     [Parameter] public EventCallback<SinScore> ValueChanged { get; set; }
+
+    public Dictionary<string, object> Attrs => IsReadonly
+        ? new Dictionary<string, object>() {{ "readonly", "readonly" }}
+        : null;
 
     public void Decrement()
     {
@@ -51,5 +79,13 @@
             StateHasChanged();
             ShouldRender();
         }
+    }
+
+    public string GetPlusMinusClass(double value)
+    {
+        if (!IsPlusMinusStyled) return "";
+        if (value < 0) return "fs-sin-input__field--minus";
+        if (value > 0) return "fs-sin-input__field--plus";
+        return "";
     }
 }

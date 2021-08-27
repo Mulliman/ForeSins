@@ -16,7 +16,7 @@
 		 </div>
 
 		 <div class="fs-text-center">
-	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Primary">Stats</MudButton>
+	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Primary" Link="/stats">Stats</MudButton>
 	  <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Primary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
 
   </div>
@@ -35,7 +35,7 @@ else if (Horndicap != null && new[] { Grades.B, Grades.C }.Contains(Horndicap.Gr
 		 </div>
 
 		 <div class="fs-text-center">
-	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary">Stats</MudButton>
+	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary" Link="/stats">Stats</MudButton>
 	  <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
 
   </div>
@@ -54,7 +54,7 @@ else if (Horndicap != null && new[] { Grades.G, Grades.A }.Contains(Horndicap.Gr
 	 </div>
 
 	 <div class="fs-text-center">
-	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary">Stats</MudButton>
+	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary" Link="/stats">Stats</MudButton>
 	  <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
 
   </div>
@@ -63,11 +63,21 @@ else if (Horndicap != null && new[] { Grades.G, Grades.A }.Contains(Horndicap.Gr
 	</Cosmos>
 }
 
-<Light HasCurvedTop="true">
-	<MudText Align="Align.Center" Typo="Typo.h2" Class="fs-heading" Style="margin-bottom:20px;"><span id="your-rounds" class="fs-slab fs-scroll-target">Your rounds</span></MudText>
+@if(Rounds?.Any() == true)
+{
+	<Light HasCurvedTop="true">
+		<MudText Align="Align.Center" Typo="Typo.h2" Class="fs-heading" Style="margin-bottom:20px;"><span id="your-rounds" class="fs-slab fs-scroll-target">Your rounds</span></MudText>
+		<RoundList Rounds="Rounds" GroupByYear="true"></RoundList>
+	</Light>
+}
+else
+{
+	<Light HasCurvedTop="true">
+		<div class="fs-heading-spacer"></div>
+		<MudText Align="Align.Center" Typo="Typo.h2" Class="fs-heading" Style="margin-bottom:20px;"><span id="your-rounds" class="fs-slab fs-scroll-target">Getting started</span></MudText>
+	</Light>
+}
 
-<RoundList Rounds="Rounds" GroupByYear="true"></RoundList>
-</Light>
 
 
 

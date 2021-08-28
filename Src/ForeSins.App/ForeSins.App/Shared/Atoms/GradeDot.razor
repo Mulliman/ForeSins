@@ -1,4 +1,4 @@
-﻿<img src="/images/grade-dots/@(Enum.GetName(Grade)).png" class="fs-max-100" />
+﻿<img src="/images/grade-dots/@(Enum.GetName(Grade).ToLower()).png" class="fs-max-100" />
 
 @code {
     [Parameter] public Grades Grade { get; set; }

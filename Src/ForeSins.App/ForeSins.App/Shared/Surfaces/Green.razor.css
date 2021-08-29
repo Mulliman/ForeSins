@@ -17,8 +17,9 @@
     text-shadow: 0 0 10px #cfc;
 }
 
-::deep .fs-input-panel h3 {
-    text-shadow:none;
+::deep .fs-input-panel h3,
+::deep .fs-input-panel .styled-p {
+    text-shadow: none;
 }
 
 .fs-green--curved-top {

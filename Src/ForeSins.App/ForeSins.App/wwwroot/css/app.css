@@ -127,6 +127,27 @@ body, #app {
     color: #FFFFFF !important;
 }
 
+.fs-main-red--imp {
+    color: #BF406D !important;
+}
+
+.fs-main-green--imp {
+    color: var(--main-green) !important;
+}
+
+.fs-main-gold--imp {
+    color: #CD991E !important;
+}
+
+.fs-main-gold-on-dark--imp {
+    color: #D9A426 !important;
+}
+
+.fs-main-white--imp,
+::deep .fs-main-white--imp {
+    color: #FFFFFF !important;
+}
+
 /* Forms */
 
 .fs-white-select.mud-select {
@@ -197,6 +218,10 @@ body, #app {
 }
 
 /* Fonts and Text */
+.fs-no-break {
+    white-space: nowrap;
+}
+
 .fs-text-center {
     text-align: center;
 }

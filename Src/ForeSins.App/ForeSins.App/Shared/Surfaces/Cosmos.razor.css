@@ -9,7 +9,12 @@
 }
 
 ::deep .fs-heading,
-::deep h3,
+::deep h3{
+    color: white;
+    text-shadow: #000 0 0 40px;
+    position:relative;
+}
+
 ::deep .styled-p {
     color: white;
     font-weight: normal;

@@ -24,16 +24,41 @@
 
     .fs-under-grade-pod.fs-under-grade-pod--dark{
         color:#010;
+        box-shadow:#000 20px;
     }
+
+    .fs-cosmos__black-back--soft{
+        background: radial-gradient(ellipse at center, #000 80%, rgba(0,0,0,0.2));
+    }
+
 </style>
 
-<Cosmos>
+@*<Green>
     <div class="fs-heading-spacer"></div>
+
+    <h2 class="fs-heading mt-5">Grades</h2>
+    <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+        <h3>Stories of your virtue fill the songs and stories of mere mortals. Zeus, Odin, and the Flying Spaghetti Monster all admire your pursuit of perfection.</h3>
+    </div>
+
+    <GrassSpacer></GrassSpacer>
+</Green>*@
+
+<Cosmos HasCurvedTop="true">
+
+<div class="fs-heading-spacer"></div>
+
+    
+    <div class="fs-max-90 fs-margin-auto fs-text-center mt-4 mb-8 pa-4" style="background:white; color: black; position:relative; border-radius: 5px;">
+         <h2 class="fs-heading mb-2 fs-main-red--imp" style="text-shadow:none;">Grades</h2>
+        <h3 style="color: black; text-shadow:none;">Rounds on <span class="fs-no-break"><span class="fs-main-green fs-slab">Fore</span><span class="fs-main-red fs-slab">Sins</span></span> are scored on a scale of six grades.</h3>
+        <p class="pt-3 styled-p" style="color: black; text-shadow:none;">These allow to see at a glance how severely you have sinned without processing loads of number. They are also used for your <strong class="fs-no-break"><Horny Text="Horn" IsSmall="true"></Horny>dicap</strong>.</p>
+    </div>
 
     <h2 class="fs-heading mt-5">Celestial champions</h2>
 
     <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
-        <h3>Stories of your virtue fill the songs and stories of mere mortals. Zeus, Odin, and the Flying Spaghetti Monster all admire your pursuit of perfection.</h3>
+        <h3 class="fs-cosmos__black-back--soft">Stories of your virtue fill the songs and stories of mere mortals. Zeus, Odin, and the Flying Spaghetti Monster all admire your pursuit of perfection.</h3>
 
         <div class="d-flex align-center justify-center mt-5 px-5">
             <div>
@@ -108,6 +133,13 @@
     <GrassSpacer></GrassSpacer>
 </Hell>
 
+<Green HasCurvedTop="true">
+    <h2 class="fs-heading mt-3 mb-3">Ready to play?</h2>
+    <div class="fs-max-90 fs-margin-auto fs-text-center fs-input-panel">
+        <h3 class="mb-3">Now you know what is sinful and how you will be judged, it is time to confess.</h3>
+		 <Cta Text="Add a round" @onclick='() => NavigationManager.NavigateTo("/edit-round")' EndIcon="@Icons.Filled.Add" IsImportant="true" />
+	</div>
+</Green>
 
 @code {
 

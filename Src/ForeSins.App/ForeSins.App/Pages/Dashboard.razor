@@ -78,9 +78,6 @@ else
 	</Light>
 }
 
-
-
-
 <BottomButtons>
  <Right>
   <MudFab Icon="@Icons.Filled.Add" Color="Color.Secondary" Link="/edit-round" Style="border:2px solid white"></MudFab>
@@ -97,5 +94,4 @@ else
 		Rounds = await Repo.GetRounds();
 		Horndicap = HorndicapService.CalculateHorndicap(Rounds);
 	}
-
 }

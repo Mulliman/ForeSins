@@ -3,38 +3,112 @@
 @using ForeSins.App.Shared.Surfaces
 
 @page "/help/grades"
-@layout PlainLayout
+@layout MainLayout
 
 @inject NavigationManager NavigationManager
 
+<style>
+    .fs-grade-pod{
+        background:white;
+        padding:10px;
+        position:relative;
+        border-radius:5px;
+    }
+
+    .fs-under-grade-pod{
+        color:white;
+        text-align:center;
+        margin-top:6px;
+        font-weight:bold;
+    }
+
+    .fs-under-grade-pod.fs-under-grade-pod--dark{
+        color:#010;
+    }
+</style>
+
 <Cosmos>
-    
+    <div class="fs-heading-spacer"></div>
+
+    <h2 class="fs-heading mt-5">Celestial champions</h2>
+
+    <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+        <h3>Stories of your virtue fill the songs and stories of mere mortals. Zeus, Odin, and the Flying Spaghetti Monster all admire your pursuit of perfection.</h3>
+
+        <div class="d-flex align-center justify-center mt-5 px-5">
+            <div>
+                <div class="mx-3 fs-grade-pod">
+                    <GradeImage Grade="Grades.G" Class="fs-max-80"></GradeImage>
+                </div>
+                <p class="fs-under-grade-pod">0 or 1 sins</p>
+            </div>
+
+            <div>
+                <div class="mx-3 fs-grade-pod">
+                    <GradeImage Grade="Grades.A" Class="fs-max-80"></GradeImage>
+
+                </div>
+                <p class="fs-under-grade-pod">2 or 3 sins</p>
+            </div>
+        </div>
+    </div>
+
+    <GrassSpacer></GrassSpacer>
 </Cosmos>
 
 <Green HasCurvedTop="true">
-    
+    <h2 class="fs-heading mt-5">Terestrial Triers</h2>
+
+    <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+        <h3>To err is human, and your occasional lapses ensure that your place is squarely here on terra firma. A focus on correcting your flaws may allow you to ascend into the heavens.</h3>
+
+        <div class="d-flex align-center justify-center mt-5 px-5">
+            <div>
+                <div class="mx-3 fs-grade-pod">
+                    <GradeImage Grade="Grades.B" Class="fs-max-80"></GradeImage>
+                </div>
+                <p class="fs-under-grade-pod fs-under-grade-pod--dark">4-6 sins</p>
+            </div>
+            <div>
+                <div class="mx-3 fs-grade-pod">
+                    <GradeImage Grade="Grades.C" Class="fs-max-80"></GradeImage>
+                </div>
+                <p class="fs-under-grade-pod fs-under-grade-pod--dark">7-12 sins</p>
+            </div>
+        </div>
+    </div>
+
+    <GrassSpacer></GrassSpacer>
 </Green>
 
 <Hell HasCurvedTop="true">
+    <h2 class="fs-heading mt-5">Subterranean Sinners</h2>
 
+    <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+        <h3>Seditious tales of your slices and shanks instil fear in all that frequent a fairway. Forget under par, you are destined for a prolonged stay in the underworld.</h3>
+
+        <div class="d-flex align-center justify-center mt-5 px-5">
+            <div>
+                <div class="mx-3 fs-grade-pod">
+                    <GradeImage Grade="Grades.D" Class="fs-max-80"></GradeImage>
+                </div>
+                <p class="fs-under-grade-pod">13-20 sins</p>
+            </div>
+            <div>
+                <div class="mx-3 fs-grade-pod">
+                    <GradeImage Grade="Grades.S" Class="fs-max-80"></GradeImage>
+                </div>
+                <p class="fs-under-grade-pod">&gt; 20 sins</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <GrassSpacer></GrassSpacer>
 </Hell>
 
-<Fairway>
-    <MudGrid Justify="Justify.Center" Class="fs-min-vh-100" Spacing="0">
-        <MudItem lg="4" md="6" sm="6" xs="8">
-            <Logo Class="mt-6" />
-        </MudItem>
-        <MudItem lg="4" md="6" sm="6" xs="8">
-            <Cta Text="Get started" />
-        </MudItem>
-        <MudItem xs="12">
-            <Bunker HasGrass="true" HasCurvedTop="true">
-                <MudText Color="Color.Dark" Typo="Typo.h6" Align="Align.Center">Don't have the time or patience to track all your stats? Confused by strokes gained? FORESINS only takes seconds per round but still provides useful data to track your progress.</MudText>
-            </Bunker>
-        </MudItem>
-    </MudGrid>
-</Fairway>
 
-@code{
-    
+@code {
+
 }

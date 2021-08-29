@@ -10,6 +10,7 @@
     border-left: 0;
     border-right: 0;
     position: relative;
+    overflow:auto;
 }
 
 .fs-light-surface--curved-top {

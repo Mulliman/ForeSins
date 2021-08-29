@@ -25,6 +25,7 @@
     border-top-left-radius: 50% 20px;
     border-top: 7px solid rgb(156 133 67 / 53%);
     padding-top: 30px;
+    margin-top:-30px;
 }
 
 .fs-hell--curved-bottom {

@@ -10,6 +10,11 @@
     text-shadow: 0 0 10px #cfc;
 }
 
+::deep .styled-p {
+    color: #000;
+    text-shadow: 0 0 10px #cfc;
+}
+
 .fs-green--curved-top {
     border-top-right-radius: 50% 20px;
     border-top-left-radius: 50% 20px;

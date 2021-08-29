@@ -1,0 +1,40 @@
+﻿@using ForeSins.App.Database
+@using ForeSins.App.Shared.Atoms
+@using ForeSins.App.Shared.Surfaces
+
+@page "/help/grades"
+@layout PlainLayout
+
+@inject NavigationManager NavigationManager
+
+<Cosmos>
+    
+</Cosmos>
+
+<Green HasCurvedTop="true">
+    
+</Green>
+
+<Hell HasCurvedTop="true">
+
+</Hell>
+
+<Fairway>
+    <MudGrid Justify="Justify.Center" Class="fs-min-vh-100" Spacing="0">
+        <MudItem lg="4" md="6" sm="6" xs="8">
+            <Logo Class="mt-6" />
+        </MudItem>
+        <MudItem lg="4" md="6" sm="6" xs="8">
+            <Cta Text="Get started" />
+        </MudItem>
+        <MudItem xs="12">
+            <Bunker HasGrass="true" HasCurvedTop="true">
+                <MudText Color="Color.Dark" Typo="Typo.h6" Align="Align.Center">Don't have the time or patience to track all your stats? Confused by strokes gained? FORESINS only takes seconds per round but still provides useful data to track your progress.</MudText>
+            </Bunker>
+        </MudItem>
+    </MudGrid>
+</Fairway>
+
+@code{
+    
+}

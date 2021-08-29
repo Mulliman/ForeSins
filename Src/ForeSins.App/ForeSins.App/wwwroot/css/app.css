@@ -11,12 +11,6 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* Mud overrides */
-
-::deep .mud-charts-yaxis{
-    display:none !important;
-}
-
 /*font-family: 'Oswald', sans-serif;
 font-family: 'Roboto Slab', serif;*/
 body, #app {
@@ -106,6 +100,7 @@ body, #app {
     }
 
 
+
 /* Colours */
 .fs-main-red {
     color: #BF406D;
@@ -113,6 +108,10 @@ body, #app {
 
 .fs-main-gold {
     color: #CD991E;
+}
+
+.fs-main-gold-on-dark {
+    color: #D9A426;
 }
 
 ::deep .fs-main-white {
@@ -193,8 +192,12 @@ body, #app {
     text-align: center;
 }
 
-.fs-text-compact{
-    line-height:1.2;
+.fs-strike {
+    text-decoration: line-through;
+}
+
+.fs-text-compact {
+    line-height: 1.2;
 }
 
 .fs-slab {

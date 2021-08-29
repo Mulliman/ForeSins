@@ -11,7 +11,8 @@
 }
 
 ::deep .fs-heading,
-::deep h3{
+::deep h3,
+::deep .styled-p {
     color: white;
 }
 

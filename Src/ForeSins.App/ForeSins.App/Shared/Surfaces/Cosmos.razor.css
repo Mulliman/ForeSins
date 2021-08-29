@@ -5,12 +5,15 @@
     border-left: 0;
     border-right: 0;
     overflow: hidden;
+    position:relative;
 }
 
 ::deep .fs-heading,
-::deep h3 {
+::deep h3,
+::deep .styled-p {
     color: white;
-    font-weight:normal;
+    font-weight: normal;
+    text-shadow: #000 0 0 20px;
 }
 
     .fs-cosmos--curved-top {
@@ -26,6 +29,13 @@
     border-bottom-left-radius: 50% 20px;
     border-bottom: 7px solid #000;
     padding-bottom: 30px;
+    margin-bottom: -30px;
+    z-index:999;
+}
+
+.fs-cosmos--white-border {
+    border-top-color: rgba(255,255,255, 0.75);
+    border-bottom-color: rgba(255,255,255, 0.75);
 }
 
 .stars {

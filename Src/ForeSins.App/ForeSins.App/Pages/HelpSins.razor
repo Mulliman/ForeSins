@@ -1,0 +1,116 @@
+﻿@using ForeSins.App.Database
+@using ForeSins.App.Shared.Atoms
+@using ForeSins.App.Shared.Surfaces
+
+@page "/help/sins"
+@layout MainLayout
+
+@inject NavigationManager NavigationManager
+
+<Green>
+    <div class="fs-heading-spacer"></div>
+
+    <h2 class="fs-heading mt-5">What is a <strong><Horny Text="Sin"></Horny></strong>?</h2>
+
+    <div class="fs-max-90 fs-margin-auto fs-text-center mt-3 mb-3">
+		 <h3>A ForeSin, or sin for short, is an unforgivable mistake made on the golf course. Everyone hits bad shots, but committing fewer of these basic errors in a round is sure to improve your scores.</h3>
+         <p class="pt-3 styled-p">Sins are sorted into six categories, sickening yips and shocking chips, splash or in trouble and scrappy doubles, squandered positions and stupid decisions.</p>
+         <p class="pt-3 styled-p">Depending on your level, the suggested definition of each term varies in difficulty. This is not a competition though, so you can choose whatever definitions help you improve.</p>
+         <ScrollButton Class="my-3" EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="sin-yips" Text="Read about the sins"></ScrollButton>
+	</div>
+
+    <GrassSpacer></GrassSpacer>
+</Green>
+
+<Hell HasGrass="true" HasCurvedTop="true">
+    <div id="sin-yips" class="fs-text-center fs-scroll-target mb-5">
+        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.SickeningYips" /></div>
+
+        <TabStyles>
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5">
+                <MudTabPanel Text="Pro">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt including putts from off the green. Any missed putts from within 3 ft should also be recorded.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="0 < 9">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt including putts from off the green.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="10+">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt.</p>
+                </MudTabPanel>
+            </MudTabs>
+        </TabStyles>
+    </div>
+
+    <div id="sin-chips" class="fs-text-center fs-scroll-target">
+        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.ShockingChips" /></div>
+
+        <TabStyles>
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5">
+                <MudTabPanel Text="Pro">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 50 yards that misses the green. Any straightforward chip and runs from the fringe that don't end up within 6ft are also a sin.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="0 < 9">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 50 yards that misses the green. Yes, that includes bunker shots too!</p>
+                </MudTabPanel>
+                <MudTabPanel Text="10+">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 30 yards that misses the green. Reducing chunked chips and bad bunker shots is one of the easiest ways to improve your score.</p>
+                </MudTabPanel>
+            </MudTabs>
+        </TabStyles>
+    </div>
+
+    <GrassSpacer></GrassSpacer>
+</Hell>
+
+<Cosmos HasCurvedBottom="true" HasCurvedTop="true" Class="fs-cosmos--white-border">
+    <div id="step-results" class="fs-scroll-target fs-text-center fs-max-90 fs-margin-auto" style="display:block; overflow: auto">
+		<h2 class="fs-heading mt-5">Did you know?</h2>
+        <h3 class="pt-3"><span class="fs-main-gold-on-dark">Tiger Woods</span> used to follow a similar approach to tracking stats.</h3>
+        <p class="pt-3 styled-p">He knew that when he made fewer silly errors, he won tournaments. If it's good enough for the GOAT, it's good enough for you.</p>
+        <img src="/images/tiger-goat.png" class="fs-max-50 d-block fs-margin-auto mt-5" />
+	</div>
+</Cosmos>
+
+<Hell>
+    <GrassSpacer Size="GrassSizes.Small"></GrassSpacer>
+
+    <div id="sin-yips" class="fs-text-center fs-scroll-target mb-5">
+        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.SickeningYips" /></div>
+
+        <TabStyles>
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5">
+                <MudTabPanel Text="Pro">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt including putts from off the green. Any missed putts from within 3 ft should also be recorded.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="0 < 9">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt including putts from off the green.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="10+">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt.</p>
+                </MudTabPanel>
+            </MudTabs>
+        </TabStyles>
+    </div>
+
+    <div id="sin-chips" class="fs-text-center fs-scroll-target">
+        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.ShockingChips" /></div>
+
+        <TabStyles>
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5">
+                <MudTabPanel Text="Pro">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 50 yards that misses the green. Any straightforward chip and runs from the fringe that don't end up within 6ft are also a sin.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="0 < 9">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 50 yards that misses the green. Yes, that includes bunker shots too!</p>
+                </MudTabPanel>
+                <MudTabPanel Text="10+">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 30 yards that misses the green. Reducing chunked chips and bad bunker shots is one of the easiest ways to improve your score.</p>
+                </MudTabPanel>
+            </MudTabs>
+        </TabStyles>
+    </div>
+</Hell>
+
+@code{
+    
+}

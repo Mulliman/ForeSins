@@ -1,0 +1,21 @@
+﻿/* Mud overrides */
+
+::deep .mud-tabs-toolbar {
+    background: transparent;
+}
+
+::deep .mud-tabs-toolbar-wrapper {
+    background: rgba(0,0,0,0.75);
+    border-radius:5px;
+}
+
+::deep .mud-tab {
+    min-width: 80px;
+    color:white;
+}
+
+    ::deep .mud-tab.mud-tab-active {
+        color: var(--mud-palette-secondary);
+        font-family: 'Roboto Slab', serif;
+        font-weight:800;
+    }

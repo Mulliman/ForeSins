@@ -1,5 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
+@inject NavigationManager NavigationManager
+
 <MudThemeProvider Theme="ForeSinsTheme.MudTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -8,27 +10,52 @@
     <div>
         <Fairway Style="position: fixed; top: 0; left: 0; right: 0; height: 70px; border-bottom-right-radius: 50% 30px; border-bottom-left-radius: 50% 30px; z-index: 1200; border-bottom: 3px solid rgba(0,0,0, 0.3);">
             <MudAppBar Elevation="0" Color="Color.Transparent">
-                <MudIconButton Icon="@Icons.Material.Filled.Person" Style="color:white" Edge="Edge.Start" />
+                <MudIconButton Icon="@Icons.Material.Filled.Person" Style="color:white" Edge="Edge.Start" OnClick="@((e) => UserDrawerToggle())" />
                 <MudSpacer />
                 <a href="/"><ForeSins.App.Shared.Atoms.LittleLogo Style="margin-top:10px" /></a>
                 <MudSpacer />
                 <MudIconButton Icon="@Icons.Material.Filled.Menu" Style="color:white" Edge="Edge.End" OnClick="@((e) => DrawerToggle())" />
             </MudAppBar>
         </Fairway>
-        
+
     </div>
 
     <MudDrawer @bind-Open="_drawerOpen" Anchor="Anchor.Right" Elevation="2">
-        <MudNavMenu>
-            <MudNavLink Href="/dashboard">Dashboard</MudNavLink>
-            <MudNavLink Href="/stats">Stats</MudNavLink>
-            <MudNavGroup Title="Help" Expanded="true">
-                <MudNavLink Href="/help/sins">Sins</MudNavLink>
-                <MudNavLink Href="/help/grades">Grades</MudNavLink>
-            </MudNavGroup>
-        </MudNavMenu>
+        <div class="fs-text-center d-flex justify-space-around flex-column fs-min-vh-100" style="width:100%">
+            <div>
+                 <div class="fs-text-center my-2"><LittleLogo></LittleLogo></div>
+            
+                <MudNavMenu>
+                    <MudNavLink Href="/dashboard">Dashboard</MudNavLink>
+                    <MudNavLink Href="/stats">Stats</MudNavLink>
+                    <MudNavGroup Title="Help" Expanded="true">
+                        <MudNavLink Href="/help/sins">Sins</MudNavLink>
+                        <MudNavLink Href="/help/grades">Grades</MudNavLink>
+                    </MudNavGroup>
+                </MudNavMenu>
+            </div>
+            <div></div>
+            <div>
+                <Cta Text="Add a round" @onclick='() => { DrawerToggle(); NavigationManager.NavigateTo("/edit-round"); }' EndIcon="@Icons.Filled.Add" IsImportant="true" Class="my-3" />
+            </div>
+            <div>
+                <p class="fs-text-center">Built for fun by<br /><a target="_blank" href="https://www.sammullins.co.uk/" class="fs-main-green">Sam Mullins</a></p>
+            </div>
+        </div>
     </MudDrawer>
-    
+
+    <MudDrawer @bind-Open="_userDrawerOpen" Anchor="Anchor.Left" Elevation="2">
+        <div class="fs-text-center d-flex align-center justify-center fs-min-vh-100">
+            <div class="fs-max-90">
+                <p><MudIcon Icon="@Icons.Material.Filled.Person" Color="Color.Dark" Size="Size.Large"></MudIcon></p>
+                <h3>You don't have an account yet...</h3>
+                <p>...but that's because we don't store any of your data.</p>
+                <p>&nbsp;</p>
+                <p>All your data is stored on your device, so be careful before you clear your browser data for this site.</p>
+            </div>
+        </div>
+    </MudDrawer>
+
     <MudMainContent>
         @Body
     </MudMainContent>
@@ -36,9 +63,15 @@
 
 @code {
     bool _drawerOpen = false;
+    bool _userDrawerOpen = false;
 
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
+    }
+
+    void UserDrawerToggle()
+    {
+        _userDrawerOpen = !_userDrawerOpen;
     }
 }

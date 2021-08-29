@@ -16,6 +16,5 @@
 
     ::deep .mud-tab.mud-tab-active {
         color: var(--mud-palette-secondary);
-        font-family: 'Roboto Slab', serif;
-        font-weight:800;
+        border-bottom: 2px solid var(--mud-palette-secondary);
     }

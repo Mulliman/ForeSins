@@ -12,104 +12,187 @@
 
     <h2 class="fs-heading mt-5">What is a <strong><Horny Text="Sin"></Horny></strong>?</h2>
 
-    <div class="fs-max-90 fs-margin-auto fs-text-center mt-3 mb-3">
-		 <h3>A ForeSin, or sin for short, is an unforgivable mistake made on the golf course. Everyone hits bad shots, but committing fewer of these basic errors in a round is sure to improve your scores.</h3>
+    <div class="fs-max-90 fs-margin-auto fs-text-center fs-input-panel">
+        <h3>A <span class="fs-main-green">Fore</span><span class="fs-main-red">Sin</span>, or sin for short, is an unforgivable mistake made on the golf course. Everyone hits bad shots, but committing fewer of these basic errors in a round is sure to improve your scores.</h3>
          <p class="pt-3 styled-p">Sins are sorted into six categories, sickening yips and shocking chips, splash or in trouble and scrappy doubles, squandered positions and stupid decisions.</p>
          <p class="pt-3 styled-p">Depending on your level, the suggested definition of each term varies in difficulty. This is not a competition though, so you can choose whatever definitions help you improve.</p>
-         <ScrollButton Class="my-3" EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="sin-yips" Text="Read about the sins"></ScrollButton>
-	</div>
+         <ScrollButton Class="mt-3" EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="sin-yips" Text="Read about the sins"></ScrollButton>
+    </div>
+
+    @*<div class="fs-max-90 fs-margin-auto fs-text-center mt-3 mb-3">
+		 
+	</div>*@
 
     <GrassSpacer></GrassSpacer>
 </Green>
 
 <Hell HasGrass="true" HasCurvedTop="true">
-    <div id="sin-yips" class="fs-text-center fs-scroll-target mb-5">
+    <h2 id="sin-yips" class="fs-heading mb-8 fs-scroll-target">Yips & Chips</h2>
+
+    <div class="fs-text-center">
         <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.SickeningYips" /></div>
 
         <TabStyles>
-            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5">
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5" ActivePanelIndex="1">
                 <MudTabPanel Text="Pro">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt including putts from off the green. Any missed putts from within 3 ft should also be recorded.</p>
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">sickening yip</strong> is a 3 putt including putts from off the green. Any missed putts from within 3 ft should also be recorded.</p>
                 </MudTabPanel>
                 <MudTabPanel Text="0 < 9">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt including putts from off the green.</p>
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">sickening yip</strong> is a 3 putt including putts from off the green. Perfecting the lag putt and reducing these errors is pivotal to improving.</p>
                 </MudTabPanel>
                 <MudTabPanel Text="10+">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt.</p>
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">sickening yip</strong> sin should be recorded every time you 3 putt. Perfecting the lag putt and reducing these errors is pivotal to improving.</p>
                 </MudTabPanel>
             </MudTabs>
         </TabStyles>
     </div>
 
-    <div id="sin-chips" class="fs-text-center fs-scroll-target">
+    <p class="fs-main-green" style="font-weight:bold; text-align:center;"><span style="color:white;">.</span> . <span style="color:white;">.</span> . <span style="color:white;">.</span> . <span style="color:white;">.</span></p>
+
+    <div id="sin-chips" class="fs-text-center fs-scroll-target mt-6">
         <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.ShockingChips" /></div>
 
         <TabStyles>
-            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5">
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5" ActivePanelIndex="1">
                 <MudTabPanel Text="Pro">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 50 yards that misses the green. Any straightforward chip and runs from the fringe that don't end up within 6ft are also a sin.</p>
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">shocking chip</strong> is a shot from an acceptable lie within 50 yards that misses the green. Any straightforward chip and run from the fringe that doesen't end up within 6ft is also a sin.</p>
                 </MudTabPanel>
                 <MudTabPanel Text="0 < 9">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 50 yards that misses the green. Yes, that includes bunker shots too!</p>
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">shocking chip</strong> is a shot from an acceptable lie within 50 yards that misses the green. Yes, that includes bunker shots too!</p>
                 </MudTabPanel>
                 <MudTabPanel Text="10+">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 30 yards that misses the green. Reducing chunked chips and bad bunker shots is one of the easiest ways to improve your score.</p>
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">shocking chip</strong> is a shot from an acceptable lie within 30 yards that misses the green. Reducing chunked chips and bad bunker shots is one of the easiest ways to improve your score.</p>
                 </MudTabPanel>
             </MudTabs>
         </TabStyles>
     </div>
 
-    <GrassSpacer></GrassSpacer>
+    <GrassSpacer Size="GrassSizes.Small"></GrassSpacer>
 </Hell>
 
 <Cosmos HasCurvedBottom="true" HasCurvedTop="true" Class="fs-cosmos--white-border">
-    <div id="step-results" class="fs-scroll-target fs-text-center fs-max-90 fs-margin-auto" style="display:block; overflow: auto">
+    <div class="fs-scroll-target fs-text-center fs-max-90 fs-margin-auto" style="display:block; overflow: auto">
 		<h2 class="fs-heading mt-5">Did you know?</h2>
-        <h3 class="pt-3"><span class="fs-main-gold-on-dark">Tiger Woods</span> used to follow a similar approach to tracking stats.</h3>
+        <h3 class="pt-3"><strong class="fs-main-gold-on-dark">Tiger Woods</strong> used to follow a similar approach to tracking stats.</h3>
         <p class="pt-3 styled-p">He knew that when he made fewer silly errors, he won tournaments. If it's good enough for the GOAT, it's good enough for you.</p>
         <img src="/images/tiger-goat.png" class="fs-max-50 d-block fs-margin-auto mt-5" />
 	</div>
 </Cosmos>
 
 <Hell>
+    <GrassSpacer></GrassSpacer>
+
+    <h2 class="fs-heading mt-3 mb-8 fs-scroll-target">Troubles & Doubles</h2>
+
+    <div id="sin-trouble" class="fs-text-center fs-scroll-target">
+        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.SplashTroubles" /></div>
+
+        <TabStyles>
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5" ActivePanelIndex="1">
+                <MudTabPanel Text="Pro">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">splash / trouble</strong> sin is when you incur a penalty shot due to whacking it in the water, blasting it out of bounds, or hitting it into the hay. If you want to be really tough you can add 2 sins for OOB or lost balls.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="0 < 9">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">splash / trouble</strong> sin is when you incur a penalty shot due to whacking it in the water, blasting it out of bounds, or hitting it into the hay.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="10+">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">splash / trouble</strong> sin is when you incur a penalty shot due to whacking it in the water, blasting it out of bounds, or hitting it into the hay.</p>
+                </MudTabPanel>
+            </MudTabs>
+        </TabStyles>
+    </div>
+
+    <p class="fs-main-green" style="font-weight:bold; text-align:center;"><span style="color:white;">.</span> . <span style="color:white;">.</span> . <span style="color:white;">.</span> . <span style="color:white;">.</span></p>
+
+    <div id="sin-double" class="fs-text-center fs-scroll-target mt-6">
+        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.ScrappyDoubles" /></div>
+
+        <TabStyles>
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5" ActivePanelIndex="1">
+                <MudTabPanel Text="Pro">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">scrappy double</strong> is a hole where you score two or more over par. To make this tougher add extra sins if you make triples or quads. Tiger also used to count bogeys on par 5s!</p>
+                </MudTabPanel>
+                <MudTabPanel Text="0 < 9">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">scrappy double</strong> is a hole where you score two or more over par. Keeping these card wreckers at bay is crucial to shooting good scores.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="10+">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">scrappy double</strong> is where you make a blob on a hole (0 points) using stableford scoring. The difference between a good player and an average player is more often consistency, not peak performance.</p>
+                </MudTabPanel>
+            </MudTabs>
+        </TabStyles>
+    </div>
+
     <GrassSpacer Size="GrassSizes.Small"></GrassSpacer>
-
-    <div id="sin-yips" class="fs-text-center fs-scroll-target mb-5">
-        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.SickeningYips" /></div>
-
-        <TabStyles>
-            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5">
-                <MudTabPanel Text="Pro">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt including putts from off the green. Any missed putts from within 3 ft should also be recorded.</p>
-                </MudTabPanel>
-                <MudTabPanel Text="0 < 9">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt including putts from off the green.</p>
-                </MudTabPanel>
-                <MudTabPanel Text="10+">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A sickening yip is a 3 putt.</p>
-                </MudTabPanel>
-            </MudTabs>
-        </TabStyles>
-    </div>
-
-    <div id="sin-chips" class="fs-text-center fs-scroll-target">
-        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.ShockingChips" /></div>
-
-        <TabStyles>
-            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5">
-                <MudTabPanel Text="Pro">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 50 yards that misses the green. Any straightforward chip and runs from the fringe that don't end up within 6ft are also a sin.</p>
-                </MudTabPanel>
-                <MudTabPanel Text="0 < 9">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 50 yards that misses the green. Yes, that includes bunker shots too!</p>
-                </MudTabPanel>
-                <MudTabPanel Text="10+">
-                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A shocking chip is a shot from within 30 yards that misses the green. Reducing chunked chips and bad bunker shots is one of the easiest ways to improve your score.</p>
-                </MudTabPanel>
-            </MudTabs>
-        </TabStyles>
-    </div>
 </Hell>
+
+<Dark HasCurvedTop="true" HasCurvedBottom="true">
+    <div class="fs-scroll-target fs-text-center fs-max-90 fs-margin-auto" style="display:block; overflow: auto">
+        <p class="pt-3 styled-p"><strong>Remember... You are not competing on ForeSins,</strong> it is a tool to help you get better.</p>
+        <p class="pt-3 styled-p">You can choose any difficulty no matter what the suggested handicap range is, or even choose different levels for different sins to match your strengths and weaknesses.</p>
+	</div>
+</Dark>
+
+<Hell>
+    <GrassSpacer></GrassSpacer>
+
+    <h2 class="fs-heading mt-3 mb-7 fs-scroll-target">Positions & Decisions</h2>
+
+    <div id="sin-positions" class="fs-text-center fs-scroll-target">
+        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.SquanderedPositions" /></div>
+
+        <TabStyles>
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5" ActivePanelIndex="1">
+                <MudTabPanel Text="Pro">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">squandered position</strong> is when you have failed to par a hole despite being in prime position. A prime position is when you are within 150 yards and have a good lie in the fairway or light rough. Short par 3s within this range also count.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="0 < 9">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">squandered position</strong> is when you have failed to par a hole despite being in prime position. A prime position is when you have a wedge or less left in and have a good lie in the fairway or light rough. Short par 3s within this range also count.</p>
+                </MudTabPanel>
+                <MudTabPanel Text="10+">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">squandered position</strong> is when you have failed to par a hole despite being in prime position. A prime position is when you are within 100 yards and have a good lie in the fairway or light rough. Short par 3s within this range also count.</p>
+                </MudTabPanel>
+            </MudTabs>
+        </TabStyles>
+    </div>
+
+    <p class="fs-main-green" style="font-weight:bold; text-align:center;"><span style="color:white;">.</span> . <span style="color:white;">.</span> . <span style="color:white;">.</span> . <span style="color:white;">.</span></p>
+
+    <div id="sin-decisions" class="fs-text-center fs-scroll-target mt-6">
+        <div class="fs-max-50 fs-margin-auto fs-text-center"><Sin TheSin="Sins.StupidDecisions" /></div>
+
+        <TabStyles>
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-6" Centered="true" HideSlider="true" Color="Color.Transparent" Class="mt-5" ActivePanelIndex="1">
+                <MudTabPanel Text="Pro">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">stupid decision</strong> is classified as any mental error. Did you not focus on a shot? Tried something too ambitious? Failed to get it out of trouble? Chose a wrong club?</p>
+                </MudTabPanel>
+                <MudTabPanel Text="0 < 9">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">stupid decision</strong> is classified as any mental error. Did you not focus on a shot? Tried something too ambitious? Failed to get it out of trouble? Chose a wrong club?</p>
+                </MudTabPanel>
+                <MudTabPanel Text="10+">
+                    <p class="fs-max-90 fs-margin-auto pt-2 styled-p">A <strong class="fs-main-green">stupid decision</strong> is classified as any mental error. Did you not focus on a shot? Tried something too ambitious? Failed to get it out of trouble? Chose a wrong club?</p>
+                </MudTabPanel>
+            </MudTabs>
+        </TabStyles>
+    </div>
+
+    <GrassSpacer Size="GrassSizes.Small"></GrassSpacer>
+</Hell>
+
+<Green HasCurvedTop="true">
+    <h2 class="fs-heading mt-3 mb-3">Ready to play?</h2>
+    <div class="fs-max-90 fs-margin-auto fs-text-center fs-input-panel">
+        <h3 class="mb-3">Now you know what is sinful, it is time to confess.</h3>
+		 <Cta Text="Add a round" @onclick='() => NavigationManager.NavigateTo("/edit-round")' EndIcon="@Icons.Filled.Add" IsImportant="true" />
+
+             <h3 class="mt-5">When you add rounds you will be assigned a grade.</h3>
+         <p class="pt-3 styled-p mb-3">These grades will allow you to see at a glance how well you are doing and will contribute to your <strong><Horny Text="Horn" IsSmall="true"></Horny>dicap</strong></p>
+         <Cta Text="Learn the grades" @onclick='() => NavigationManager.NavigateTo("/help/grades")' EndIcon="@Icons.Filled.ArrowForward" IsWhite="true"  />
+	</div>
+
+    <div class="fs-max-90 fs-margin-auto fs-text-center mt-3 mb-3">
+		 
+	</div>
+</Green>
 
 @code{
     

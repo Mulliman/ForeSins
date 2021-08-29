@@ -22,6 +22,10 @@ body, #app {
     scroll-margin: 100px;
 }
 
+.fs-scroll-target--large {
+    scroll-margin: 150px;
+}
+
 .fs-scroll-target--small {
     scroll-margin: 80px;
 }
@@ -106,6 +110,10 @@ body, #app {
     color: #BF406D;
 }
 
+.fs-main-green {
+    color: var(--main-green);
+}
+
 .fs-main-gold {
     color: #CD991E;
 }
@@ -114,6 +122,7 @@ body, #app {
     color: #D9A426;
 }
 
+.fs-main-white,
 ::deep .fs-main-white {
     color: #FFFFFF !important;
 }

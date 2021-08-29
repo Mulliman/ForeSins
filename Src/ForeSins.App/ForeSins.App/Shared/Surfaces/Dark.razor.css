@@ -1,0 +1,34 @@
+﻿::deep .fs-heading,
+::deep h3 {
+    color: #DDD;
+}
+
+::deep .styled-p {
+    color: #DDD;
+}
+
+.fs-dark-surface {
+    background: #070707;
+    background: linear-gradient(0deg, #070707 20%, rgba(0,0,0,0) 50%),radial-gradient(ellipse at top, #000 0%, #111 80%, #000 100%);
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    position: relative;
+}
+
+.fs-dark-surface--curved-top {
+    border-top-right-radius: 50% 20px;
+    border-top-left-radius: 50% 20px;
+    border-top: 7px solid #666;
+    padding-top: 30px;
+    margin-top: -30px;
+}
+
+.fs-dark-surface--curved-bottom {
+    border-bottom-right-radius: 50% 20px;
+    border-bottom-left-radius: 50% 20px;
+    border-bottom: 7px solid #666;
+    padding-bottom: 30px;
+    margin-bottom: -30px;
+    z-index: 999;
+}

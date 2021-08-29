@@ -2,6 +2,7 @@
     background: rgb(150, 217, 136);
     background: linear-gradient(60deg, rgba(150, 217, 136,0.5) 0%, rgba(150, 217, 136,0.5) 9%, rgba(171,228,159,0.5) 10%, rgba(171,228,159,0.5) 19%, rgba(150, 217, 136,0.5) 20%, rgba(150, 217, 136,0.5) 29%, rgba(171,228,159,0.5) 30%, rgba(171,228,159,0.5) 39%, rgba(150, 217, 136,0.5) 40%, rgba(150, 217, 136,0.5) 49%, rgba(171,228,159,0.5) 50%, rgba(171,228,159,0.5) 59%, rgba(150, 217, 136,0.5) 60%, rgba(150, 217, 136,0.5) 69%, rgba(171,228,159,0.5) 70%, rgba(171,228,159,0.5) 79%, rgba(150, 217, 136,0.5) 80%, rgba(150, 217, 136,0.5) 89%, rgba(171,228,159,0.5) 90%, rgba(171,228,159,0.5) 100%), linear-gradient(120deg, rgba(150, 217, 136,1) 0%, rgba(150, 217, 136,1) 9%, rgba(171,228,159,1) 10%, rgba(171,228,159,1) 19%, rgba(150, 217, 136,1) 20%, rgba(150, 217, 136,1) 29%, rgba(171,228,159,1) 30%, rgba(171,228,159,1) 39%, rgba(150, 217, 136,1) 40%, rgba(150, 217, 136,1) 49%, rgba(171,228,159,1) 50%, rgba(171,228,159,1) 59%, rgba(150, 217, 136,1) 60%, rgba(150, 217, 136,1) 69%, rgba(171,228,159,1) 70%, rgba(171,228,159,1) 79%, rgba(150, 217, 136,1) 80%, rgba(150, 217, 136,1) 89%, rgba(171,228,159,1) 90%, rgba(171,228,159,1) 100%);
     background-position: 0 0, 0 0;
+    position:relative;
 }
 
 ::deep .fs-heading,
@@ -15,11 +16,16 @@
     text-shadow: 0 0 10px #cfc;
 }
 
+::deep .fs-input-panel h3 {
+    text-shadow:none;
+}
+
 .fs-green--curved-top {
     border-top-right-radius: 50% 20px;
     border-top-left-radius: 50% 20px;
     border-top: 7px solid rgb(156 133 67 / 53%);
     padding-top: 30px;
+    margin-top: -30px;
 }
 
 .fs-green--curved-bottom {
@@ -27,4 +33,6 @@
     border-bottom-left-radius: 50% 20px;
     border-bottom: 7px solid rgb(156 133 67 / 53%);
     padding-bottom: 30px;
+    margin-bottom: -30px;
+    z-index: 999;
 }

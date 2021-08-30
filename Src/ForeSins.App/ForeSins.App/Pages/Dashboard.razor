@@ -2,96 +2,111 @@
 @using ForeSins.App.Database
 @layout MainLayout
 
+@inject NavigationManager NavigationManager
 @inject RoundRepository Repo
 @inject Services.HorndicapService HorndicapService
 
 @if (Horndicap != null && new[] { Grades.S, Grades.D }.Contains(Horndicap.Grade))
 {
-	<Hell>
-	 <div class="fs-heading-spacer"></div>
-	 <HorndicapBanner Rounds="Rounds"></HorndicapBanner>
+    <Hell>
+        <div class="fs-heading-spacer"></div>
+        <HorndicapBanner Rounds="Rounds"></HorndicapBanner>
 
-	 <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
-		 <h3>Seditious tales of your slices and shanks instil fear in all that frequent a fairway. Forget under par, you are destined for a prolonged stay in the underworld.</h3>
-		 </div>
+        <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+            <h3>Seditious tales of your slices and shanks instil fear in all that frequent a fairway. Forget under par, you are destined for a prolonged stay in the underworld.</h3>
+        </div>
 
-		 <div class="fs-text-center">
-	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Primary" Link="/stats">Stats</MudButton>
-	  <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Primary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
+        <div class="fs-text-center">
+            <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Primary" Link="/stats">Stats</MudButton>
+            <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Primary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
 
-  </div>
+        </div>
 
-		 <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
-	</Hell>
+        <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+    </Hell>
 }
 else if (Horndicap != null && new[] { Grades.B, Grades.C }.Contains(Horndicap.Grade))
 {
-	<Green>
-	 <div class="fs-heading-spacer"></div>
-	 <HorndicapBanner Rounds="Rounds"></HorndicapBanner>
+    <Green>
+        <div class="fs-heading-spacer"></div>
+        <HorndicapBanner Rounds="Rounds"></HorndicapBanner>
 
-	 <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
-		 <h3>To err is human, and your occasional lapses ensure that your place is squarely here on terra firma. A focus on correcting your flaws may allow you to ascend into the heavens.</h3>
-		 </div>
+        <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+            <h3>To err is human, and your occasional lapses ensure that your place is squarely here on terra firma. A focus on correcting your flaws may allow you to ascend into the heavens.</h3>
+        </div>
 
-		 <div class="fs-text-center">
-	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary" Link="/stats">Stats</MudButton>
-	  <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
+        <div class="fs-text-center">
+            <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary" Link="/stats">Stats</MudButton>
+            <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
 
-  </div>
+        </div>
 
-		 <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
-	</Green>
+        <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+    </Green>
 }
 else if (Horndicap != null && new[] { Grades.G, Grades.A }.Contains(Horndicap.Grade))
 {
-	<Cosmos>
-	 <div class="fs-heading-spacer"></div>
-	 <HorndicapBanner Rounds="Rounds"></HorndicapBanner>
+    <Cosmos>
+        <div class="fs-heading-spacer"></div>
+        <HorndicapBanner Rounds="Rounds"></HorndicapBanner>
 
-	 <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
-		 <h3>Stories of your virtue fill the songs and stories of mere mortals. Zeus, Odin, and the Flying Spaghetti Monster all admire your pursuit of perfection.</h3>
-	 </div>
+        <div class="fs-max-80 fs-margin-auto fs-text-center my-3">
+            <h3>Stories of your virtue fill the songs and stories of mere mortals. Zeus, Odin, and the Flying Spaghetti Monster all admire your pursuit of perfection.</h3>
+        </div>
 
-	 <div class="fs-text-center">
-	  <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary" Link="/stats">Stats</MudButton>
-	  <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
+        <div class="fs-text-center">
+            <MudButton EndIcon="@Icons.Filled.TrendingUp" Variant="Variant.Filled" Color="Color.Secondary" Link="/stats">Stats</MudButton>
+            <ScrollButton EndIcon="@Icons.Filled.ArrowDownward" Variant="Variant.Filled" Colour="Color.Secondary" ScrollToId="your-rounds" Text="Timeline"></ScrollButton>
 
-  </div>
+        </div>
 
-	 <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
-	</Cosmos>
+        <GrassSpacer Size="@GrassSizes.Normal"></GrassSpacer>
+    </Cosmos>
 }
 
-@if(Rounds?.Any() == true)
+@if (Rounds?.Any() == true)
 {
-	<Light HasCurvedTop="true">
-		<MudText Align="Align.Center" Typo="Typo.h2" Class="fs-heading" Style="margin-bottom:20px;"><span id="your-rounds" class="fs-slab fs-scroll-target">Your rounds</span></MudText>
-		<RoundList Rounds="Rounds" GroupByYear="true"></RoundList>
-	</Light>
+    <Light HasCurvedTop="true">
+        <MudText Align="Align.Center" Typo="Typo.h2" Class="fs-heading" Style="margin-bottom:20px;"><span id="your-rounds" class="fs-slab fs-scroll-target">Your rounds</span></MudText>
+        <RoundList Rounds="Rounds" GroupByYear="true"></RoundList>
+    </Light>
 }
 else
 {
-	<Light HasCurvedTop="true">
-		<div class="fs-heading-spacer"></div>
-		<MudText Align="Align.Center" Typo="Typo.h2" Class="fs-heading" Style="margin-bottom:20px;"><span id="your-rounds" class="fs-slab fs-scroll-target">Getting started</span></MudText>
-	</Light>
+    <Light>
+        <div class="fs-heading-spacer"></div>
+        <h2 class="fs-heading mt-5">Getting started</h2>
+
+        <div class="fs-max-90 fs-margin-auto fs-text-center fs-input-panel">
+            <h3>You haven't confessed any of your sins yet.</h3>
+            <p class="pt-3 styled-p">In order to start on your road to repentance you need to add some rounds. This can be done from the dashboard at any time by pressing the green plus button in the bottom right of the screen.</p>
+            <Cta Text="Add a round" Class="mt-3" @onclick='() => NavigationManager.NavigateTo("/edit-round")' EndIcon="@Icons.Filled.Add" IsImportant="true" />
+        </div>
+
+        <div class="fs-max-90 fs-margin-auto fs-text-center fs-input-panel">
+            <h3>What is a <Horny Text="Sin" IsSmall="true"></Horny>?</h3>
+            <p class="pt-3 styled-p">A <strong class="fs-main-green">Fore</strong><strong class="fs-main-red">Sin</strong>, or sin for short, is an unforgivable mistake made on the golf course.</p>
+            <p class="pt-3 styled-p">Sins are sorted into six categories, sickening yips and shocking chips, splash or in trouble and scrappy doubles, squandered positions and stupid decisions.</p>
+            <p class="pt-3 styled-p">The definition for each depends on your level, so be sure to read them before you start.</p>
+            <Cta Text="Learn the sins" Class="mt-3" @onclick='() => NavigationManager.NavigateTo("/help/sins")' EndIcon="@Icons.Filled.ArrowForward" />
+        </div>
+    </Light>
 }
 
 <BottomButtons>
- <Right>
-  <MudFab Icon="@Icons.Filled.Add" Color="Color.Secondary" Link="/edit-round" Style="border:2px solid white"></MudFab>
- </Right>
+    <Right>
+        <MudFab Icon="@Icons.Filled.Add" Color="Color.Secondary" Link="/edit-round" Style="border:2px solid white"></MudFab>
+    </Right>
 </BottomButtons>
 
 @code {
-	public List<Round> Rounds { get; set; }
+    public List<Round> Rounds { get; set; }
 
-	public Horndicap Horndicap { get; set; }
+    public Horndicap Horndicap { get; set; }
 
-	protected override async Task OnInitializedAsync()
-	{
-		Rounds = await Repo.GetRounds();
-		Horndicap = HorndicapService.CalculateHorndicap(Rounds);
-	}
+    protected override async Task OnInitializedAsync()
+    {
+        Rounds = await Repo.GetRounds();
+        Horndicap = HorndicapService.CalculateHorndicap(Rounds);
+    }
 }

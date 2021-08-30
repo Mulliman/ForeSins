@@ -1,6 +1,6 @@
 ﻿.fs-fairway {
     background: rgb(77,178,88);
-    background: linear-gradient(110deg, rgba(77,178,88,1) 0%, rgba(76,176,87,1) 19%, rgba(73,170,88,1) 20%, rgba(73,170,88,1) 39%, rgba(77,178,88,1) 40%, rgba(77,178,88,1) 59%, rgba(73,170,88,1) 60%, rgba(73,170,88,1) 79%, rgba(77,178,88,1) 80%, rgba(73,170,88,1) 100%);
+    background: linear-gradient(180deg, rgba(77,178,88,1) 0%, rgba(77,178,88,0) 30%), linear-gradient(110deg, rgba(77,178,88,1) 0%, rgba(76,176,87,1) 19%, rgba(73,170,88,1) 20%, rgba(73,170,88,1) 39%, rgba(77,178,88,1) 40%, rgba(77,178,88,1) 59%, rgba(73,170,88,1) 60%, rgba(73,170,88,1) 79%, rgba(77,178,88,1) 80%, rgba(73,170,88,1) 100%);
 }
 
 ::deep .fs-heading,

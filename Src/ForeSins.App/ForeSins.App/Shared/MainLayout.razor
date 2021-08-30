@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
 @inject NavigationManager NavigationManager
+@inject Services.DownloadService DownloadService
 
 <MudThemeProvider Theme="ForeSinsTheme.MudTheme" />
 <MudDialogProvider />
@@ -37,6 +38,7 @@
             <div></div>
             <div>
                 <Cta Text="Add a round" @onclick='() => { DrawerToggle(); NavigationManager.NavigateTo("/edit-round"); }' EndIcon="@Icons.Filled.Add" IsImportant="true" Class="my-3" />
+                <Cta Text="Download data" @onclick='async () => { await DownloadService.DownloadAllDataAsCsv($"ForeSins-Data-{DateTime.Now.ToString("dd-MM-yy")}.csv"); }' EndIcon="@Icons.Filled.FileDownload" IsWhite="true" Class="mb-3" />
             </div>
             <div>
                 <p class="fs-text-center">Built for fun by<br /><a target="_blank" href="https://www.sammullins.co.uk/" class="fs-main-green">Sam Mullins</a></p>
@@ -52,6 +54,8 @@
                 <p>...but that's because we don't store any of your data.</p>
                 <p>&nbsp;</p>
                 <p>All your data is stored on your device, so be careful before you clear your browser data for this site.</p>
+
+                <Cta Text="Download data" @onclick='async () => { await DownloadService.DownloadAllDataAsCsv($"ForeSins-Data-{DateTime.Now.ToString("dd-MM-yy")}.csv"); }' EndIcon="@Icons.Filled.FileDownload" IsWhite="true" Class="my-3" />
             </div>
         </div>
     </MudDrawer>

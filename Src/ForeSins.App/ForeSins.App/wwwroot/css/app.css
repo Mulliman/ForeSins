@@ -116,6 +116,19 @@ body, #app {
         align-items: center;
     }
 
+.fs-33-33-33 {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .fs-33-33-33 div {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
 /* Colours */
 .fs-main-red {
     color: #BF406D;

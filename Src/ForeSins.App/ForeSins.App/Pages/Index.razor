@@ -8,6 +8,15 @@
 @inject NavigationManager NavigationManager
 @inject RoundRepository Repo
 
+<style>
+    .fs-grade-pod {
+        background: white;
+        padding: 10px;
+        position: relative;
+        border-radius: 5px;
+    }
+</style>
+
 <Fairway>
     <div>
         <div class="pt-6 fs-max-66 fs-margin-auto">
@@ -44,7 +53,7 @@
         <h3>Tracking your golf statistics shouldn't be a ball-ache.</h3>
         <p class="pt-3 styled-p"><ForeSinsText /> takes a simple approach to recording and analyzing your performance on the golf course.</p>
         <p class="pt-3 styled-p">
-            Forget tediously typing in tons of data, say goodbye to strokes gained, and simplify your stats to one straightforward question...
+            Forget tediously typing in tons of data and say goodbye to strokes gained, simplify your stats to one straightforward question...
         </p>
         <h2 class="fs-heading mt-6"><Horny IsLarge="true" Text="Are you a sinner?"></Horny></h2>
     </div>
@@ -53,47 +62,87 @@
 </Green>
 
 <Hell HasCurvedTop="true" HasGrass="true">
-    <h2 class="fs-heading mt-3 mb-7">What is a sin?</h2>
+    <div style="position:relative">
+        <h2 class="fs-heading mt-3 mb-7">What is a sin?</h2>
 
-    <div class="fs-max-80 fs-margin-auto fs-text-center mb-3">
-        <h3>A <ForeSinsText IsSingular="true" />, or sin for short, is an unforgivable mistake made on the golf course.</h3>
-        <p class="pt-3 styled-p">Reducing these stupid mistakes is an easy way to reduce your scores without having to make swing changes. Organised into 6 categories, the sins tracked are the following:</p>
+        <div class="fs-max-80 fs-margin-auto fs-text-center mb-3">
+            <h3>A <ForeSinsText IsSingular="true" />, or sin for short, is an unforgivable mistake made on the golf course.</h3>
+            <p class="pt-3 styled-p">Reducing these stupid mistakes is an easy way to reduce your scores without having to make swing changes. Organised into 6 categories, the sins tracked are the following:</p>
+        </div>
+
+        <div class="fs-max-90 fs-50-50 mt-5">
+            <div class="justify-center">
+                <Sin TheSin="Sins.SickeningYips" />
+            </div>
+            <div class="justify-center">
+                <Sin TheSin="Sins.ShockingChips" />
+            </div>
+        </div>
+        <div class="fs-max-90 fs-50-50 mt-5">
+            <div class="justify-center">
+                <Sin TheSin="Sins.SplashTroubles" />
+            </div>
+            <div class="justify-center">
+                <Sin TheSin="Sins.ScrappyDoubles" />
+            </div>
+        </div>
+        <div class="fs-max-90 fs-50-50 mt-5">
+            <div class="justify-center">
+                <Sin TheSin="Sins.SquanderedPositions" />
+            </div>
+            <div class="justify-center">
+                <Sin TheSin="Sins.StupidDecisions" />
+            </div>
+        </div>
+
+        <div class="fs-text-center my-5">
+            <MudButton Size="Size.Small" Variant="Variant.Filled" Color="Color.Dark" Link="/help/sins">Learn what each means</MudButton>
+        </div>
     </div>
 
-    <div class="fs-max-90 fs-50-50 mt-5">
-        <div class="justify-center">
-            <Sin TheSin="Sins.SickeningYips" />
-        </div>
-        <div class="justify-center">
-            <Sin TheSin="Sins.ShockingChips" />
-        </div>
-    </div>
-    <div class="fs-max-90 fs-50-50 mt-5">
-        <div class="justify-center">
-            <Sin TheSin="Sins.SplashTroubles" />
-        </div>
-        <div class="justify-center">
-            <Sin TheSin="Sins.ScrappyDoubles" />
-        </div>
-    </div>
-    <div class="fs-max-90 fs-50-50 mt-5">
-        <div class="justify-center">
-            <Sin TheSin="Sins.SquanderedPositions" />
-        </div>
-        <div class="justify-center">
-            <Sin TheSin="Sins.StupidDecisions" />
-        </div>
-    </div>
-
-    <div class="fs-text-center my-5">
-        <MudButton Size="Size.Small" Variant="Variant.Filled" Color="Color.Dark" Link="/help/sins">Learn what each means</MudButton>
-    </div>
-
-    
+    <GrassSpacer></GrassSpacer>
 </Hell>
 
+<Cosmos HasCurvedBottom="true" HasCurvedTop="true" Class="fs-cosmos--white-border">
+    <div class="fs-scroll-target fs-text-center fs-max-90 fs-margin-auto" style="display:block; overflow: auto; position:relative">
+        <h2 class="fs-heading mt-3 mb-7">Saint or sinner?</h2>
+        <h3 class="fs-cosmos__black-back--soft">Your rounds on <ForeSinsText /> will be graded so you can easily see how you are progressing.</h3>
 
-<Cta Text="Add a round" Class="mt-3" @onclick='() => NavigationManager.NavigateTo("/edit-round")' EndIcon="@Icons.Filled.Add" IsImportant="true" />
+        <div class="fs-33-33-33 mt-3">
+            <div class="fs-grade-pod ma-2 justify-center"><GradeImage Class="fs-max-90" Grade="Grades.G" /></div>
+            <div class="fs-grade-pod ma-2 justify-center"><GradeImage Class="fs-max-90" Grade="Grades.A" /></div>
+            <div class="fs-grade-pod ma-2 justify-center"><GradeImage Class="fs-max-90" Grade="Grades.B" /></div>
+        </div>
+
+        <div class="fs-33-33-33">
+            <div class="fs-grade-pod ma-2 justify-center"><GradeImage Class="fs-max-90" Grade="Grades.C" /></div>
+            <div class="fs-grade-pod ma-2 justify-center"><GradeImage Class="fs-max-90" Grade="Grades.D" /></div>
+            <div class="fs-grade-pod ma-2 justify-center"><GradeImage Class="fs-max-90" Grade="Grades.S" /></div>
+        </div>
+
+        <p class="pt-3 styled-p fs-cosmos__black-back--soft">Over time these will also be used for your <span class="fs-no-break"><Horny Text="Horn" IsSmall="true"></Horny>dicap</span>, a handicap for sinners. Will your efforts secure you a place in the heavens with the golfing gods?</p>
+    </div>
+</Cosmos>
+
+<Green>
+    <GrassSpacer></GrassSpacer>
+
+    <div class="fs-scroll-target fs-text-center fs-max-90 fs-margin-auto" style="display:block; overflow: auto">
+        <h2 class="fs-heading mt-3 mb-5">It's time to confess!</h2>
+
+        <Cta Text="Get Started" Class="mb-5" @onclick='() => NavigationManager.NavigateTo("/dashboard")' EndIcon="@Icons.Filled.Whatshot" IsImportant="true" />
+
+        <h3 class="fs-cosmos__black-back--soft pb-2">Now you know the basics, all you need to do now is start recording your scores.</h3>
+
+        <div class="py-3">
+            <p class="fs-text-center" style="color:#030">
+                Built for fun by<br />
+                <a target="_blank" href="https://www.sammullins.co.uk/" style="color:#030; text-decoration:underline">Sam Mullins</a>
+            </p>
+        </div>
+    </div>
+</Green>
+
 @code {
     protected override async Task OnInitializedAsync()
     {

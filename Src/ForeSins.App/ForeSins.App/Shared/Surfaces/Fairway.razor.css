@@ -9,6 +9,13 @@
     text-shadow: 0 0 10px #125E12;
 }
 
+::deep .fs-input-panel h3,
+::deep .fs-input-panel .styled-p {
+    text-shadow: none;
+    color: #020;
+}
+
+
 .fs-fairway--curved-top {
     border-top-right-radius: 50% 20px;
     border-top-left-radius: 50% 20px;

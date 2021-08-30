@@ -103,7 +103,18 @@ body, #app {
         flex: 1;
     }
 
+.fs-50-50 {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+    .fs-50-50 div {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
 
 /* Colours */
 .fs-main-red {
@@ -129,6 +140,10 @@ body, #app {
 
 .fs-main-red--imp {
     color: #BF406D !important;
+}
+
+.fs-main-dark-red--imp {
+    color: #af0037 !important;
 }
 
 .fs-main-green--imp {
@@ -235,7 +250,7 @@ body, #app {
 }
 
 .fs-slab {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto Slab', serif !important;
 }
 
 .fs-tiny-text {
@@ -281,6 +296,16 @@ h2.fs-heading {
 
 .fs-input-panel .fs-heading{
     color: var(--main-red) !important;
+}
+
+.fs-text-800,
+.fs-text-bold {
+    font-weight: 800 !important;
+}
+
+.fs-text-900,
+.fs-text-heavy {
+    font-weight: 900 !important;
 }
 
 /* Golf */

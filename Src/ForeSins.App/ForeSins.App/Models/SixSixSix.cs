@@ -1,4 +1,6 @@
-﻿namespace ForeSins.App.Models
+﻿using System;
+
+namespace ForeSins.App.Models
 {
     public class SixSixSix
     {
@@ -31,5 +33,7 @@
         public double SquanderedPositions { get; set; }
 
         public double StupidDecisions { get; set; }
+
+        public double Average => (SickeningYips + ShockingChips + SplashTroubles + ScrappyDoubles + SquanderedPositions + StupidDecisions) / 6;
     }
 }

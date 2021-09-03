@@ -30,6 +30,7 @@ namespace ForeSins.App
             builder.Services.AddTransient<Grader>();
             builder.Services.AddTransient<HorndicapService>();
             builder.Services.AddTransient<DownloadService>();
+            builder.Services.AddTransient<TipService>();
 
             builder.Services.AddTransient<RoundRepository>();
             builder.Services.AddScoped<IIndexedDbFactory, IndexedDbFactory>();

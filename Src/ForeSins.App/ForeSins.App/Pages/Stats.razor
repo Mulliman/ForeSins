@@ -4,19 +4,31 @@
 
 @inject RoundRepository Repo
 @inject Services.HorndicapService HorndicapService
+@inject Services.TipService TipService
 
-<Cosmos>
+<Cosmos HasCurvedBottom="true" Class="fs-cosmos--white-border">
 	<div class="fs-heading-spacer"></div>
+
+	<h2 class="fs-heading mt-5">Statistics</h2>
+
+	@if (Tip != null)
+	{
+		<div class="fs-max-90 fs-margin-auto fs-input-panel fs-text-center fs-border-red fs-border-3">
+			<h3 class="fs-heading my-2">Just the tip</h3>
+			<p>@Tip</p>
+		</div>
+	}
 
 	<div class="fs-max-90 fs-input-panel fs-margin-auto fs-text-center">
 		<h3 class="fs-heading mt-5">Your progress</h3>
 		<MudChart ChartType="ChartType.Line" ChartSeries="@Series" XAxisLabels="@XAxisLabels" ChartOptions="Options" Width="100%"></MudChart>
 	</div>
-
 </Cosmos>
 
 <Hell>
 	<div id="step-sins" class="fs-scroll-target" style="z-index:1111; position:relative">
+		<GrassSpacer></GrassSpacer>
+
 		<h2 class="fs-heading mt-5">How did you sin?</h2>
 
 		<div class="fs-margin-auto fs-text-center">
@@ -30,11 +42,8 @@
 					<MudSelectItem Value="@("Total sins")" />
 				</MudSelect>
 			</div>
-
-			
 		</div>
 		
-
 		@if(SixSixSixSins != null)
 		{
 			@if(SelectedStat == "6 year average")
@@ -67,11 +76,13 @@
 			}
 		}
 		
+		<GrassSpacer></GrassSpacer>
 	</div>
+
 </Hell>
 
-<Light>
-<div class="mx-2 my-5">
+<Light HasCurvedTop="true">
+<div class="mx-2 mb-5">
 <h2 class="fs-heading py-2">Round history</h2>
 
 <MudTable FixedHeader="true" Items="@Rounds" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.None" Height="@TableHeight">
@@ -95,7 +106,6 @@
     </RowTemplate>
  </MudTable>
 </div>
-	
 </Light>
 
 <BottomButtons>
@@ -111,6 +121,7 @@
 	public Horndicap Horndicap { get; set; }
 	public IEnumerable<Horndicap> HorndicapHistory { get; set; }
 	public SixSixSixSins SixSixSixSins { get; set; }
+	public string Tip { get; set; }
 	public SinAverages Totals { get; set; }
 	public SinAverages RoundsVsMonths { get; set; }
 	public SinAverages RoundsVsYears { get; set; }
@@ -132,6 +143,7 @@
 		HorndicapHistory = HorndicapService.CalculateHorndicapHistory(Rounds);
 
 		SixSixSixSins = HorndicapService.CalculateSixSixSixOfSins(Rounds);
+		Tip = TipService.GetBestTip(SixSixSixSins);
 
 		Console.WriteLine("SquanderedPositions" + SixSixSixSins.Last6Years.SquanderedPositions);
 

@@ -1,0 +1,120 @@
+﻿@using System.IO
+@using ForeSins.App.Database
+@using ForeSins.App.Services
+
+@inject RoundRepository repo
+@inject DownloadService downloadService
+@inject NavigationManager nav
+
+<div class="fs-text-center">
+<InputFile OnChange="HandleSelected" />
+</div>
+
+@if(HasValidFile == false)
+{
+    <h3 class="fs-text-center fs-main-red">Invalid file</h3>
+}
+
+@if(Rounds?.Any() == true && Rounds.Any(r => r.Value != null))
+{
+    var validOnes = Rounds.Where(r => r.Value != null).Select(r => r.Value);
+
+    <h3 class="fs-text-center my-3">What will be imported...</h3>
+
+    <MudList>
+        @foreach(var round in Rounds)
+        {
+            if(round.Value != null)
+            {
+                <MudListItem Style="background:white" Icon="@Icons.Filled.Check" Dense="true" IconColor="Color.Success">@round.Value.Date.ToDateString()</MudListItem>
+            } 
+            else {
+                <MudListItem Style="background:white" Icon="@Icons.Filled.Close" Dense="true" IconColor="Color.Error">Error on line @(round.Key + 1)</MudListItem>
+            }
+        }
+    </MudList>
+
+    if (validOnes.Any())
+    {
+        <div class="fs-text-center my-3">
+            <MudButton OnClick="() => OnSync(validOnes)" Color="Color.Secondary" Variant="Variant.Filled" EndIcon="@Icons.Filled.FileUpload">Import data</MudButton>
+        </div>
+    }
+}
+
+@code {
+    [Parameter] public Dictionary<int, Round> Rounds { get; set; } = new Dictionary<int, Round>();
+
+    public bool? HasValidFile { get; set; }
+
+    private async Task HandleSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+
+        if (!file.Name.EndsWith(".csv"))
+        {
+            HasValidFile = false;
+            return;
+        }
+
+        HasValidFile = true;
+
+        using (var stream = file.OpenReadStream())
+        {
+            var stream2 = new MemoryStream();
+            await stream.CopyToAsync(stream2);
+            stream2.Seek(0, SeekOrigin.Begin);  
+
+            var stringReader = new StreamReader(stream2);
+
+            var errorCount = 0;
+            var list = new Dictionary<int, Round>();
+
+            var lineNum = 0;
+
+            while (!stringReader.EndOfStream) 
+            { 
+                string line = stringReader.ReadLine();
+
+                if(lineNum > 0)
+                {
+                    var round = RoundFromString(line);
+
+                    Rounds.Add(lineNum, round);
+                }
+                
+                lineNum++;
+            } 
+
+            if(errorCount > 1)
+            {
+                // Todo warn user.
+            }
+            else
+            {
+                
+            }
+        }
+    }
+
+    public async Task OnSync(IEnumerable<Round> validOnes)
+    {
+        await repo.SyncRounds(validOnes);
+
+        nav.NavigateTo("/");
+    }
+
+    private Round RoundFromString(string csvLine)
+    {
+        try
+        {
+            return downloadService.GetRoundFromCsv(csvLine);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error parsing " + csvLine);
+        }
+
+        return null;
+    }
+}

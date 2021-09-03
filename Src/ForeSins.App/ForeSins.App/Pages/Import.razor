@@ -1,0 +1,27 @@
+﻿@page "/import"
+@using ForeSins.App.Database
+@layout MainLayout
+
+
+<Light>
+    <div class="fs-min-vh-100">
+        <div class="fs-heading-spacer"></div>
+        <div class="mx-2 my-5">
+            <h2 class="fs-heading py-2">Choose a CSV file to import</h2>
+
+            <Importer />
+
+        </div>
+    </div>
+</Light>
+
+<BottomButtons>
+    <Left>
+        <MudFab Icon="@Icons.Filled.ArrowBack" Color="Color.Dark" Style="border:2px solid white" Link="/dashboard"></MudFab>
+    </Left>
+</BottomButtons>
+
+
+@code {
+
+}

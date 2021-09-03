@@ -44,6 +44,19 @@ namespace ForeSins.App.Database
             }
         }
 
+        public async Task SyncRounds(IEnumerable<Round> rounds)
+        {
+            var existingRoundIds = (await GetRounds()).Select(round => round.Id).ToList();
+
+            foreach (var round in rounds)
+            {
+                if(!existingRoundIds.Contains(round.Id))
+                {
+                    await AddRound(round);
+                }
+            }
+        }
+
         public async Task UpdateRound(Round round)
         {
             Console.WriteLine("UpdateRound pre");

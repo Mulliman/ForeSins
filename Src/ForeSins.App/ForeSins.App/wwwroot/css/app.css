@@ -176,6 +176,13 @@ body, #app {
     color: #FFFFFF !important;
 }
 
+/* Gradients */
+
+.light-gradient {
+    background: #eee;
+    background: linear-gradient(180deg, rgb(255,255,255) 70%, #EEE 100%);
+}
+
 /* Forms */
 
 .fs-white-select.mud-select {

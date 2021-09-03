@@ -22,10 +22,10 @@
     </div>
 
     <MudDrawer @bind-Open="_drawerOpen" Anchor="Anchor.Right" Elevation="2">
-        <div class="fs-text-center d-flex justify-space-around flex-column fs-min-vh-100" style="width:100%">
+        <div class="fs-text-center d-flex justify-space-around flex-column fs-min-vh-100 light-gradient" style="width:100%">
             <div>
-                 <div class="fs-text-center my-2"><LittleLogo></LittleLogo></div>
-            
+                <div class="fs-text-center my-2"><a href="/"><LittleLogo></LittleLogo></a></div>
+
                 <MudNavMenu>
                     <MudNavLink Href="/dashboard">Dashboard</MudNavLink>
                     <MudNavLink Href="/stats">Stats</MudNavLink>
@@ -38,7 +38,8 @@
             <div></div>
             <div>
                 <Cta Text="Add a round" @onclick='() => { DrawerToggle(); NavigationManager.NavigateTo("/edit-round"); }' EndIcon="@Icons.Filled.Add" IsImportant="true" Class="my-3" />
-                <Cta Text="Download data" @onclick='async () => { await DownloadService.DownloadAllDataAsCsv($"ForeSins-Data-{DateTime.Now.ToString("dd-MM-yy")}.csv"); }' EndIcon="@Icons.Filled.FileDownload" IsWhite="true" Class="mb-3" />
+                <MudButton Size="Size.Small" Class="mt-3 mb-2" OnClick="async () => await Download()" Color="Color.Primary" Variant="Variant.Outlined" EndIcon="@Icons.Filled.FileDownload">Download data</MudButton>
+                <MudButton Size="Size.Small" Class="mb-3" OnClick='async () => { DrawerToggle(); NavigationManager.NavigateTo("/import"); }' Color="Color.Primary" Variant="Variant.Outlined" EndIcon="@Icons.Filled.FileUpload">Import data</MudButton>
             </div>
             <div>
                 <p class="fs-text-center">Built for fun by<br /><a target="_blank" href="https://www.sammullins.co.uk/" class="fs-main-green">Sam Mullins</a></p>
@@ -47,7 +48,7 @@
     </MudDrawer>
 
     <MudDrawer @bind-Open="_userDrawerOpen" Anchor="Anchor.Left" Elevation="2">
-        <div class="fs-text-center d-flex align-center justify-center fs-min-vh-100">
+        <div class="fs-text-center d-flex align-center justify-center fs-min-vh-100 light-gradient">
             <div class="fs-max-90">
                 <p><MudIcon Icon="@Icons.Material.Filled.Person" Color="Color.Dark" Size="Size.Large"></MudIcon></p>
                 <h3>You don't have an account yet...</h3>
@@ -55,7 +56,8 @@
                 <p>&nbsp;</p>
                 <p>All your data is stored on your device, so be careful before you clear your browser data for this site.</p>
 
-                <Cta Text="Download data" @onclick='async () => { await DownloadService.DownloadAllDataAsCsv($"ForeSins-Data-{DateTime.Now.ToString("dd-MM-yy")}.csv"); }' EndIcon="@Icons.Filled.FileDownload" IsWhite="true" Class="my-3" />
+                <MudButton Class="mt-3 mb-2" OnClick="async () => await Download()" Color="Color.Primary" Variant="Variant.Outlined" EndIcon="@Icons.Filled.FileDownload">Download data</MudButton>
+                <MudButton OnClick='async () => { UserDrawerToggle(); NavigationManager.NavigateTo("/import"); }' Color="Color.Primary" Variant="Variant.Outlined" EndIcon="@Icons.Filled.FileUpload">Import data</MudButton>
             </div>
         </div>
     </MudDrawer>
@@ -77,5 +79,10 @@
     void UserDrawerToggle()
     {
         _userDrawerOpen = !_userDrawerOpen;
+    }
+
+    async Task Download()
+    {
+       await DownloadService.DownloadAllDataAsCsv($"ForeSins-Data-{DateTime.Now.ToString("dd-MM-yy")}.csv");
     }
 }
